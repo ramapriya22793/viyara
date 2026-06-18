@@ -41,7 +41,7 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
   }, [value]);
 
   return (
-    <span ref={ref} className="font-serif font-bold text-5xl text-[#162436]">
+    <span ref={ref} className="font-serif font-bold text-5xl text-[var(--color-accent-blue)]">
       {count}
       {suffix}
     </span>
@@ -54,11 +54,11 @@ export default function WhyChoose() {
   const bgY = useTransform(scrollYProgress, [0, 1], ['-15%', '15%']);
 
   return (
-    <section ref={sectionRef} id="why-VIYARA" className="py-28 relative overflow-hidden bg-[#f1f5f9]">
+    <section ref={sectionRef} id="why-VIYARA" className="py-28 relative overflow-hidden bg-[#ffffff]">
       {/* Parallax background ambient circle */}
       <motion.div
         style={{ y: bgY }}
-        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[#162436]/3 rounded-full blur-[110px] pointer-events-none"
+        className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-[var(--color-accent-blue)]/3 rounded-full blur-[110px] pointer-events-none"
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
@@ -72,12 +72,12 @@ export default function WhyChoose() {
             transition={{ duration: 0.9 }}
             className="lg:col-span-5"
           >
-            <span className="inline-block px-4 py-1.5 rounded-full bg-[#162436]/5 border border-[#162436]/10 text-xs font-bold tracking-[0.2em] text-[#162436] uppercase mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-accent-blue)]/5 border border-[var(--color-accent-blue)]/10 text-xs font-bold tracking-[0.2em] text-[var(--color-accent-blue)] uppercase mb-6">
               Why Partner With Us
             </span>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-6 leading-tight">
               Architecting the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#162436] to-[#3f6a9e]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-purple)]">
                 Future of Digital
               </span>
             </h3>
@@ -86,7 +86,7 @@ export default function WhyChoose() {
             </p>
 
             {/* Trust Stats Counter (TCS/Cognizant trust metrics) */}
-            <div className="grid grid-cols-2 gap-8 border-l-2 border-[#162436]/20 pl-6">
+            <div className="grid grid-cols-2 gap-8 border-l-2 border-[var(--color-accent-blue)]/20 pl-6">
               <div>
                 <div className="h-14 flex items-center">
                   <Counter value={10} suffix="x" />
@@ -117,15 +117,15 @@ export default function WhyChoose() {
                   rotateX: 1.5,
                   rotateY: -1.5,
                   backgroundColor: 'rgba(255, 255, 255, 0.85)',
-                  borderColor: 'rgba(22, 36, 54, 0.15)',
-                  boxShadow: '0 15px 35px -10px rgba(22, 36, 54, 0.12)'
+                  borderColor: 'rgba(51, 65, 85, 0.15)',
+                  boxShadow: '0 15px 35px -10px rgba(51, 65, 85, 0.12)'
                 }}
-                className="glass p-7 rounded-3xl border border-[#162436]/5 transition-all duration-300 cursor-pointer"
+                className="glass p-7 rounded-3xl border border-[#0f172a]/5 transition-all duration-300 cursor-pointer"
               >
                 {/* Micro-interactive Icon */}
                 <motion.div
                   whileHover={{ scale: 1.1, rotate: 5 }}
-                  className="w-10 h-10 rounded-xl bg-[#162436]/5 flex items-center justify-center mb-5 text-[#162436]"
+                  className="w-10 h-10 rounded-xl bg-[var(--color-accent-blue)]/5 flex items-center justify-center mb-5 text-[var(--color-accent-blue)]"
                 >
                   <reason.icon className="w-5 h-5" />
                 </motion.div>

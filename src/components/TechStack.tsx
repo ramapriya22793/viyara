@@ -37,10 +37,10 @@ const techGroups = [
 
 export default function TechStack() {
   return (
-    <section id="tech-stack" className="py-28 relative overflow-hidden bg-[#ffffff]/60 border-t border-[#162436]/5">
+    <section id="tech-stack" className="py-28 relative overflow-hidden bg-[#f8fafc] border-t border-[#0f172a]/5">
       {/* Background ambient decorative circles */}
-      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[#162436]/3 rounded-full blur-[100px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[#3f6a9e]/4 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[var(--color-accent-blue)]/3 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[var(--color-accent-purple)]/4 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
@@ -51,7 +51,7 @@ export default function TechStack() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-block px-4 py-1.5 rounded-full bg-[#162436]/5 border border-[#162436]/10 text-xs font-bold tracking-[0.2em] text-[#162436] uppercase mb-6"
+            className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-accent-blue)]/5 border border-[var(--color-accent-blue)]/10 text-xs font-bold tracking-[0.2em] text-[var(--color-accent-blue)] uppercase mb-6"
           >
             Technology Ecosystem
           </motion.span>
@@ -84,14 +84,14 @@ export default function TechStack() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.9, delay: groupIndex * 0.15 }}
-              className="glass aspect-square rounded-full flex flex-col justify-center items-center text-center p-8 md:p-12 relative overflow-hidden group hover:glow-plum hover:border-[#cca353]/30 transition-all duration-500 border border-[#162436]/10 shadow-[0_15px_40px_-20px_rgba(22,36,54,0.15)] bg-white/40"
+              className="aspect-square rounded-full flex flex-col justify-center items-center text-center p-8 md:p-12 relative overflow-hidden group transition-all duration-500 border border-[#162436]/10 shadow-[0_20px_50px_rgba(22,36,54,0.15)] bg-[#162436] hover:scale-[1.02] hover:shadow-[0_25px_60px_rgba(22,36,54,0.25)]"
             >
-              {/* Radial gradient background on sphere hover */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#162436]/2 via-transparent to-[#cca353]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+              {/* Radial glow on hover inside the circle */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-indigo-500/15 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
               
               <div className="mb-6 z-10 max-w-[240px]">
-                <h4 className="font-serif text-xl sm:text-2xl font-bold text-[#0f172a] mb-2">{group.category}</h4>
-                <p className="text-[#475569] text-xs font-light leading-relaxed">{group.desc}</p>
+                <h4 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">{group.category}</h4>
+                <p className="text-[#cbd5e1] text-xs font-light leading-relaxed">{group.desc}</p>
               </div>
 
               {/* Items inside circular layout */}
@@ -102,19 +102,15 @@ export default function TechStack() {
                     whileHover={{ 
                       scale: 1.06, 
                       y: -3,
-                      backgroundColor: 'rgba(22, 36, 54, 0.12)',
-                      boxShadow: '0 8px 20px -6px rgba(22, 36, 54, 0.15)'
+                      backgroundColor: 'rgba(255,255,255,0.15)',
+                      boxShadow: '0 8px 20px -6px rgba(0,0,0,0.3)'
                     }}
                     transition={{ type: 'spring', stiffness: 200, damping: 10 }}
-                    style={{ 
-                      animationDelay: `${item.delay}s`,
-                      backgroundColor: item.color,
-                      color: item.text
-                    }}
-                    className="animate-float flex items-center gap-2 px-3 py-2 rounded-full border border-[#162436]/10 cursor-pointer transition-all duration-300"
+                    style={{ animationDelay: `${item.delay}s` }}
+                    className="animate-float flex items-center gap-2 px-3 py-2 rounded-full border border-white/10 bg-white/5 cursor-pointer transition-all duration-300"
                   >
-                    <item.icon className="w-3.5 h-3.5 text-[#162436]" />
-                    <span className="text-[10px] font-bold tracking-wider uppercase">{item.name}</span>
+                    <item.icon className="w-3.5 h-3.5 text-[#60a5fa]" />
+                    <span className="text-[10px] font-bold tracking-wider uppercase text-white">{item.name}</span>
                   </motion.div>
                 ))}
               </div>

@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import About from './components/About';
 import WhyChoose from './components/WhyChoose';
 import Process from './components/Process';
 import TechStack from './components/TechStack';
@@ -42,7 +43,7 @@ function App() {
   }, [isLoading]);
 
   return (
-    <div className="bg-[#f1f5f9] min-h-screen text-[#0f172a] antialiased selection:bg-[#162436]/15 selection:text-[#162436]">
+    <div className="bg-[#ffffff] min-h-screen text-[#0f172a] antialiased selection:bg-[#162436]/15 selection:text-[#162436]">
       {/* Loading Screen */}
       <LoadingScreen onComplete={() => setIsLoading(false)} />
 
@@ -61,6 +62,7 @@ function App() {
             {/* Sections in user recommended sequence */}
             <Hero />
             <Services />
+            <About />
             <WhyChoose />
             <Process />
             <TechStack />

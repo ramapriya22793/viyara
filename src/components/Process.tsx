@@ -54,9 +54,9 @@ export default function Process() {
   const scaleY = useSpring(scrollYProgress, { stiffness: 80, damping: 20 });
 
   return (
-    <section id="methodology" ref={containerRef} className="py-28 relative bg-[#ffffff]/30 border-t border-[#162436]/5 overflow-hidden">
+    <section id="methodology" ref={containerRef} className="py-28 relative bg-[#ffffff]/30 border-t border-[#0f172a]/5 overflow-hidden">
       {/* Ambient background accent */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[250px] bg-[#162436]/2 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[250px] bg-[var(--color-accent-blue)]/2 rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
@@ -66,7 +66,7 @@ export default function Process() {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-block px-4 py-1.5 rounded-full bg-[#162436]/5 border border-[#162436]/10 text-xs font-bold tracking-[0.2em] text-[#162436] uppercase mb-6"
+            className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-accent-blue)]/5 border border-[var(--color-accent-blue)]/10 text-xs font-bold tracking-[0.2em] text-[var(--color-accent-blue)] uppercase mb-6"
           >
             Engineering Pipeline
           </motion.span>
@@ -94,12 +94,12 @@ export default function Process() {
         <div className="relative max-w-4xl mx-auto">
           
           {/* Background Static Line */}
-          <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[2px] bg-[#162436]/8 -translate-x-1/2" />
+          <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[2px] bg-[var(--color-accent-blue)]/8 -translate-x-1/2" />
 
           {/* Animated Progress Line */}
           <motion.div
             style={{ scaleY, transformOrigin: 'top' }}
-            className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-[#162436] via-[#3f6a9e] to-[#162436] -translate-x-1/2 z-10"
+            className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[2px] bg-gradient-to-b from-[var(--color-accent-blue)] via-[var(--color-accent-purple)] to-[var(--color-accent-blue)] -translate-x-1/2 z-10"
           />
 
           {/* Steps List */}
@@ -117,18 +117,18 @@ export default function Process() {
                     <motion.div
                       whileInView={{ 
                         scale: [0.8, 1.1, 1], 
-                        backgroundColor: '#162436',
-                        borderColor: '#162436'
+                        backgroundColor: 'var(--color-accent-blue)',
+                        borderColor: 'var(--color-accent-blue)'
                       }}
                       viewport={{ once: true, margin: '-60px' }}
                       transition={{ duration: 0.6, delay: 0.1 }}
-                      className="w-10 h-10 rounded-full border-2 border-[#162436]/20 bg-[#f1f5f9] flex items-center justify-center text-[#f1f5f9] text-xs font-bold shadow-md hover:shadow-lg transition-shadow"
+                      className="w-10 h-10 rounded-full border-2 border-[var(--color-accent-blue)]/20 bg-[#f1f5f9] flex items-center justify-center text-[#f1f5f9] text-xs font-bold shadow-md hover:shadow-lg transition-shadow"
                     >
                       <step.icon size={16} />
                     </motion.div>
                     
                     {/* Glowing outer aura on active scroll */}
-                    <div className="absolute inset-0 rounded-full bg-[#162436]/10 blur-md pointer-events-none -z-10 animate-ping opacity-30" />
+                    <div className="absolute inset-0 rounded-full bg-[var(--color-accent-blue)]/10 blur-md pointer-events-none -z-10 animate-ping opacity-30" />
                   </div>
 
                   {/* Asymmetric Content Columns */}
@@ -142,14 +142,14 @@ export default function Process() {
                         whileHover={{
                           y: -6,
                           scale: 1.02,
-                          borderColor: '#cca353',
-                          boxShadow: '0 15px 30px -10px rgba(204,163,83,0.15)'
+                          borderColor: 'var(--color-accent-blue)',
+                          boxShadow: '0 10px 25px -5px rgba(51, 65, 85, 0.08)'
                         }}
                         viewport={{ once: true, margin: '-80px' }}
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        className="glass p-7 rounded-3xl border border-[#162436]/8 hover:border-[#162436]/20 transition-all duration-300 shadow-sm cursor-pointer"
+                        className="glass p-7 rounded-3xl border border-[#0f172a]/8 hover:border-[#0f172a]/20 transition-all duration-300 shadow-sm cursor-pointer"
                       >
-                        <span className="font-serif font-bold text-[#162436]/55 text-sm tracking-widest">{step.label}</span>
+                        <span className="font-serif font-bold text-[var(--color-accent-blue)]/60 text-sm tracking-widest">{step.label}</span>
                         <h4 className="font-serif text-xl font-bold text-[#0f172a] mt-1 mb-3">{step.title}</h4>
                         <p className="text-xs text-[#475569] leading-relaxed font-light">{step.desc}</p>
                       </motion.div>
@@ -165,14 +165,14 @@ export default function Process() {
                         whileHover={{
                           y: -6,
                           scale: 1.02,
-                          borderColor: '#cca353',
-                          boxShadow: '0 15px 30px -10px rgba(204,163,83,0.15)'
+                          borderColor: 'var(--color-accent-blue)',
+                          boxShadow: '0 10px 25px -5px rgba(51, 65, 85, 0.08)'
                         }}
                         viewport={{ once: true, margin: '-80px' }}
                         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                        className="glass p-7 rounded-3xl border border-[#162436]/8 hover:border-[#162436]/20 transition-all duration-300 shadow-sm cursor-pointer"
+                        className="glass p-7 rounded-3xl border border-[#0f172a]/8 hover:border-[#0f172a]/20 transition-all duration-300 shadow-sm cursor-pointer"
                       >
-                        <span className="font-serif font-bold text-[#162436]/55 text-sm tracking-widest">{step.label}</span>
+                        <span className="font-serif font-bold text-[var(--color-accent-blue)]/60 text-sm tracking-widest">{step.label}</span>
                         <h4 className="font-serif text-xl font-bold text-[#0f172a] mt-1 mb-3">{step.title}</h4>
                         <p className="text-xs text-[#475569] leading-relaxed font-light">{step.desc}</p>
                       </motion.div>

@@ -4,6 +4,26 @@ import { X, Info, Layers, CheckCircle2, ArrowRight } from 'lucide-react';
 
 const projects = [
   {
+    title: 'Paidhu Ethical Foods',
+    category: 'Custom D2C E-Commerce',
+    image: 'https://images.unsplash.com/photo-1597481499750-3e6b22637e12?q=80&w=1400&auto=format&fit=crop',
+    tags: ['Shopify Headless', 'Next.js', 'Tailwind CSS', 'Wellness Commerce'],
+    brief: 'Developing an immersive, high-conversion headless e-commerce experience for Paidhu, a premium D2C brand specializing in edible floral teas and organic botanical foods.',
+    challenge: 'Translating Paidhu\'s core philosophy of pure nature and botanical health benefits into a fast, highly-aesthetic catalog that guides users seamlessly to checkout.',
+    solution: 'Engineered a template-free Next.js storefront integrated with headless Shopify APIs, featuring rapid image load optimization and rich narrative layouts.',
+    outcome: 'Drove online checkout conversions up by 115%, reduced catalog load time to 0.6 seconds, and expanded regional brand footprint.'
+  },
+  {
+    title: 'The Prink Gifting Platform',
+    category: 'Interactive Personalization Portal',
+    image: 'https://images.unsplash.com/photo-1513151233558-d860c5398176?q=80&w=1400&auto=format&fit=crop',
+    tags: ['React', 'Custom Builder', 'Node.js', 'Fulfillment API'],
+    brief: 'Designing and engineering an interactive gift building dashboard enabling customers to curate and preview custom miniature frames and surprise gift boxes.',
+    challenge: 'Heavy user photo uploads and custom layout setups caused sluggish browser sessions and manual order processing lags during high-traffic seasons.',
+    solution: 'Formulated a React customization builder with client-side canvas engines, instant compression pipelines, and automatic printing output layouts.',
+    outcome: 'Increased personalized order volume by 145%, reduced cart drop-offs, and fully automated prepress file assembly.'
+  },
+  {
     title: 'Nexus Enterprise SaaS',
     category: 'Cloud Engineering & SaaS',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1400&auto=format&fit=crop',
@@ -90,10 +110,10 @@ function ProjectStackSection({
       <div 
         className="stack-parallax-bg"
         style={{ backgroundImage: `url(${project.image})` }}
-      />
-      
-      {/* Dark tint overlay */}
-      <div className="absolute inset-0 bg-[#162436]/40 z-[2]" />
+      >
+        {/* Dark tint overlay */}
+        <div className="absolute inset-0 bg-[#162436]/40 z-[2]" />
+      </div>
 
       {/* Content Columns Wrapper */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10 flex items-center stack-content justify-center gap-0">
@@ -158,7 +178,7 @@ export default function Portfolio() {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="portfolio" className="relative bg-[#f1f5f9] border-y border-[#162436]/5">
+    <section id="portfolio" className="relative bg-[#ffffff] border-y border-[#162436]/5">
       {/* Introduction Banner before sticky items */}
       <div className="py-24 max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
         <span className="inline-block px-4 py-1.5 rounded-full bg-[#162436]/5 border border-[#162436]/10 text-xs font-bold tracking-[0.2em] text-[#162436] uppercase mb-6">

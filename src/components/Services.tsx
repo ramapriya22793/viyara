@@ -1,8 +1,26 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle2, ArrowRight } from 'lucide-react';
+import { X, CheckCircle2 } from 'lucide-react';
 
 const servicePillars = [
+  {
+    title: 'E-Commerce & Quick Commerce Solutions',
+    category: 'High-Speed Retail Architectures',
+    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1400&q=80',
+    tags: ['E-Commerce Storefronts', 'Quick Commerce', 'Custom Headless Build', 'Stripe Integrations'],
+    brief: 'Developing custom, high-speed online storefronts and quick commerce platforms built entirely from scratch for maximum conversions.',
+    solution: 'We code custom, template-free headless storefronts featuring lightning-fast page loading speeds and secure payment gateways.',
+    outcome: 'Sub-second shopping cart transitions, boosting successful sales transactions and minimizing checkout abandonment.'
+  },
+  {
+    title: 'Branding & Brand Identity',
+    category: 'Brand Strategy & Identity Design',
+    image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1400&q=80',
+    tags: ['Brand Strategy', 'Logo & Visual Identity', 'Brand Guidelines', 'Packaging Design'],
+    brief: 'Crafting powerful, distinctive brand identities that resonate deeply with your audience — from strategy and naming through to logo design, color systems, and full brand guidelines.',
+    solution: 'We develop comprehensive brand systems including logo suites, typography pairings, color palettes, tone of voice, and complete brand style guides ready for all digital and print applications.',
+    outcome: 'A cohesive, recognizable brand presence that builds trust, drives recall, and sets your business apart from competitors across every customer touchpoint.'
+  },
   {
     title: 'Website & SaaS Product Development',
     category: 'Digital Systems',
@@ -40,15 +58,6 @@ const servicePillars = [
     outcome: 'Fault-tolerant pre-production code with zero bugs at launch, securing server data and system stability.'
   },
   {
-    title: 'E-Commerce & Quick Commerce Solutions',
-    category: 'High-Speed Retail Architectures',
-    image: 'https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&w=1400&q=80',
-    tags: ['E-Commerce Storefronts', 'Quick Commerce', 'Custom Headless Build', 'Stripe Integrations'],
-    brief: 'Developing custom, high-speed online storefronts and quick commerce platforms built entirely from scratch for maximum conversions.',
-    solution: 'We code custom, template-free headless storefronts featuring lightning-fast page loading speeds and secure payment gateways.',
-    outcome: 'Sub-second shopping cart transitions, boosting successful sales transactions and minimizing checkout abandonment.'
-  },
-  {
     title: 'Digital & Visual Marketing',
     category: 'Growth & Content Marketing',
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
@@ -59,14 +68,13 @@ const servicePillars = [
   }
 ];
 
+
 function ServiceStackItem({ 
   pillar, 
-  index, 
-  onInspect 
+  index
 }: { 
   pillar: typeof servicePillars[0]; 
   index: number; 
-  onInspect: () => void;
 }) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
@@ -104,10 +112,10 @@ function ServiceStackItem({
       <div 
         className="stack-parallax-bg"
         style={{ backgroundImage: `url(${pillar.image})` }}
-      />
-      
-      {/* Dark tint overlay */}
-      <div className="absolute inset-0 bg-[#162436]/40 z-[2]" />
+      >
+        {/* Dark tint overlay */}
+        <div className="absolute inset-0 bg-[#0f172a]/30 z-[2]" />
+      </div>
 
       {/* Content Columns Wrapper */}
       <div className="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10 flex items-center stack-content justify-center gap-0">
@@ -115,7 +123,7 @@ function ServiceStackItem({
         {/* Left Side: Editorial white panel */}
         <div className="stack-card-white flex flex-col justify-between min-h-[360px] md:min-h-[420px]" data-cursor-text="Open">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-widest text-[#3f6a9e] mb-2 block">
+            <span className="text-[10px] font-bold uppercase tracking-widest text-[var(--color-accent-blue)] mb-2 block">
               {pillar.category}
             </span>
             <h4 className="font-serif text-3xl md:text-4xl font-bold text-[#0f172a] mb-5">
@@ -125,20 +133,10 @@ function ServiceStackItem({
               {pillar.brief}
             </p>
           </div>
-          
-          <div className="flex justify-start">
-            <button
-              onClick={onInspect}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-[#162436] text-[#f1f5f9] text-[10px] font-bold uppercase tracking-wider hover:bg-transparent hover:text-[#162436] border border-[#162436] transition-all duration-300 cursor-pointer"
-            >
-              Analyze Capability
-              <ArrowRight size={12} />
-            </button>
-          </div>
         </div>
 
         {/* Right Side: Overlay deep-navy statistics card */}
-        <div className="stack-card-accent flex flex-col justify-between min-h-[280px] md:min-h-[340px]">
+        <div className="stack-card-accent flex flex-col justify-between min-h-[280px] md:min-h-[340px] bg-[#0b0f19]">
           <div>
             <span className="text-[10px] font-bold uppercase tracking-widest text-[#f1f5f9]/60 block mb-6">
               DIAGNOSTIC OUTCOME
@@ -172,10 +170,10 @@ export default function Services() {
   const [selectedPillar, setSelectedPillar] = useState<typeof servicePillars[0] | null>(null);
 
   return (
-    <section id="services" className="relative bg-[#f1f5f9] border-y border-[#162436]/5">
+    <section id="services" className="relative bg-[#ffffff] border-y border-[#0f172a]/5">
       {/* Introduction Banner before sticky items */}
       <div className="py-24 max-w-7xl mx-auto px-6 md:px-12 relative z-10 text-center">
-        <span className="inline-block px-4 py-1.5 rounded-full bg-[#162436]/5 border border-[#162436]/10 text-xs font-bold tracking-[0.2em] text-[#162436] uppercase mb-6">
+        <span className="inline-block px-4 py-1.5 rounded-full bg-[var(--color-accent-blue)]/5 border border-[var(--color-accent-blue)]/10 text-xs font-bold tracking-[0.2em] text-[var(--color-accent-blue)] uppercase mb-6">
           Expertise &amp; Capabilities
         </span>
         <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] leading-tight max-w-2xl mx-auto mb-6">
@@ -193,7 +191,6 @@ export default function Services() {
             key={index}
             pillar={pillar}
             index={index}
-            onInspect={() => setSelectedPillar(pillar)}
           />
         ))}
       </div>
@@ -233,7 +230,7 @@ export default function Services() {
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute bottom-6 left-8 z-20">
-                    <span className="text-[10px] font-bold tracking-widest text-[#cca353] uppercase bg-[#f1f5f9] px-3 py-1 rounded-full border border-[#162436]/10 shadow-sm">
+                    <span className="text-[10px] font-bold tracking-widest text-[var(--color-accent-blue)] uppercase bg-[#f1f5f9] px-3 py-1 rounded-full border border-[#0f172a]/10 shadow-sm">
                       {selectedPillar.category}
                     </span>
                     <h2 className="font-serif text-3xl md:text-5xl font-bold text-[#0f172a] mt-3">
@@ -246,8 +243,8 @@ export default function Services() {
                 <div className="p-8 md:p-12 space-y-10">
                   {/* Detailed Analysis Section */}
                   <div className="grid md:grid-cols-3 gap-8 text-left">
-                    <div className="bg-[#ede7d7]/35 border border-[#162436]/5 p-6 rounded-3xl space-y-3">
-                      <div className="text-[9px] font-extrabold tracking-widest text-[#cca353] uppercase">
+                    <div className="bg-[#f1f5f9]/50 border border-[#0f172a]/5 p-6 rounded-3xl space-y-3">
+                      <div className="text-[9px] font-extrabold tracking-widest text-[var(--color-accent-blue)] uppercase">
                         Service Overview
                       </div>
                       <p className="text-xs text-[#0f172a] leading-relaxed font-normal">
@@ -255,8 +252,8 @@ export default function Services() {
                       </p>
                     </div>
 
-                    <div className="bg-[#ede7d7]/35 border border-[#162436]/5 p-6 rounded-3xl space-y-3">
-                      <div className="text-[9px] font-extrabold tracking-widest text-[#cca353] uppercase">
+                    <div className="bg-[#f1f5f9]/50 border border-[#0f172a]/5 p-6 rounded-3xl space-y-3">
+                      <div className="text-[9px] font-extrabold tracking-widest text-[var(--color-accent-blue)] uppercase">
                         Execution Strategy
                       </div>
                       <p className="text-xs text-[#0f172a] leading-relaxed font-normal">
@@ -264,19 +261,19 @@ export default function Services() {
                       </p>
                     </div>
 
-                    <div className="bg-[#162436] text-white p-6 rounded-3xl space-y-3 shadow-lg relative overflow-hidden">
+                    <div className="bg-[#0f172a] text-white p-6 rounded-3xl space-y-3 shadow-lg relative overflow-hidden">
                       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,transparent_70%)] pointer-events-none" />
-                      <div className="text-[9px] font-extrabold tracking-widest text-[#cca353] uppercase relative z-10">
+                      <div className="text-[9px] font-extrabold tracking-widest text-[var(--color-accent-purple)] uppercase relative z-10">
                         Diagnostic Outcome
                       </div>
-                      <p className="text-xs text-[#ede7d7] leading-relaxed font-normal relative z-10">
+                      <p className="text-xs text-[#f1f5f9] leading-relaxed font-normal relative z-10">
                         {selectedPillar.outcome}
                       </p>
                     </div>
                   </div>
 
                   {/* Defined Tech Stack */}
-                  <div className="border-t border-[#162436]/5 pt-8 text-center">
+                  <div className="border-t border-[#0f172a]/5 pt-8 text-center">
                     <h4 className="font-serif text-xl font-bold text-[#0f172a] mb-2">
                       Defined Technology Stack
                     </h4>
@@ -289,11 +286,11 @@ export default function Services() {
                       {selectedPillar.tags.map((tag, i) => (
                         <motion.div
                           key={i}
-                          whileHover={{ y: -4, borderColor: '#cca353', boxShadow: '0 10px 25px -5px rgba(22, 36, 54, 0.08)' }}
-                          className="bg-[#f1f5f9]/50 border border-[#162436]/10 rounded-2xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-300"
+                          whileHover={{ y: -4, borderColor: 'var(--color-accent-blue)', boxShadow: '0 10px 25px -5px rgba(22, 36, 54, 0.08)' }}
+                          className="bg-[#f1f5f9]/50 border border-[#0f172a]/10 rounded-2xl p-4 flex flex-col items-center justify-center gap-3 transition-all duration-300"
                         >
-                          <div className="w-8 h-8 rounded-xl bg-[#162436]/5 flex items-center justify-center text-[#162436]">
-                            <CheckCircle2 size={16} className="text-[#cca353]" />
+                          <div className="w-8 h-8 rounded-xl bg-[#0f172a]/5 flex items-center justify-center text-[#0f172a]">
+                            <CheckCircle2 size={16} className="text-[var(--color-accent-blue)]" />
                           </div>
                           <span className="text-[9px] font-bold uppercase tracking-wider text-[#0f172a] whitespace-nowrap">
                             {tag}

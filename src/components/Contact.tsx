@@ -66,7 +66,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h5 className="text-white font-semibold mb-1">Email</h5>
-                  <p className="text-[var(--color-text-silver)]">VIYARA.com@gmail.com</p>
+                  <p className="text-[var(--color-text-silver)]">Info@viyara.co.in</p>
                 </div>
               </div>
             </div>

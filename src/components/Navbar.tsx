@@ -6,6 +6,7 @@ import Magnetic from './Magnetic';
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
+  { name: 'About', href: '#about' },
   { name: 'Why VIYARA', href: '#why-VIYARA' },
   { name: 'Methodology', href: '#methodology' },
   { name: 'Contact', href: '#contact' },
@@ -39,16 +40,8 @@ export default function Navbar() {
           
           {/* Brand Logo */}
           <a href="#home" className="flex items-center gap-2.5 group cursor-pointer" data-cursor-text="Home">
-            <div className="relative">
-              <img
-                src={isScrolled ? "/logo-blue.png" : "/logo-white.png"}
-                alt="VIYARA Logo"
-                className="w-9 h-9 group-hover:scale-105 transition-transform duration-300 object-contain"
-              />
-              <div className="absolute inset-0 rounded-xl bg-[#cca353]/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
-            <span className={`font-sans font-extrabold text-2xl tracking-tight transition-colors duration-300 ${
-              isScrolled ? 'text-[#162436]' : 'text-white'
+            <span className={`font-sans font-bold text-2xl tracking-tight transition-colors duration-300 ${
+              isScrolled ? 'text-[#0f172a]' : 'text-white'
             }`}>
               VIYARA
             </span>
@@ -60,13 +53,13 @@ export default function Navbar() {
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-xs font-bold uppercase tracking-wider transition-colors duration-300 relative py-1 ${
-                  isScrolled ? 'text-[#162436]/70 hover:text-[#162436]' : 'text-white/70 hover:text-white'
+                className={`text-xs font-medium uppercase tracking-wider transition-colors duration-300 relative py-1 ${
+                  isScrolled ? 'text-[#0f172a]/70 hover:text-[#0f172a]' : 'text-white/70 hover:text-white'
                 } group`}
               >
                 {link.name}
                 <span className={`absolute bottom-0 left-0 w-0 h-[1.5px] rounded-full bg-gradient-to-r ${
-                  isScrolled ? 'from-[#162436] to-[#cca353]' : 'from-[#cca353] to-[#ede7d7]'
+                  isScrolled ? 'from-[#0f172a] to-[var(--color-accent-blue)]' : 'from-[var(--color-luxury-beige)] to-[var(--color-luxury-gold)]'
                 } transition-all duration-300 group-hover:w-full`} />
               </a>
             ))}
@@ -77,14 +70,14 @@ export default function Navbar() {
             <Magnetic range={0.25}>
               <a
                 href="#contact"
-                className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase border transition-all duration-300 ${
+                className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border transition-all duration-300 ${
                   isScrolled 
-                    ? 'border-[#162436]/30 bg-[#162436]/5 text-[#162436] hover:bg-[#162436] hover:border-[#162436] hover:text-white shadow-[0_0_15px_rgba(22,36,54,0.1)]' 
-                    : 'border-[#cca353]/40 bg-[#cca353]/15 text-[#ede7d7] hover:bg-[#cca353]/35 hover:border-[#cca353]/80 hover:text-white shadow-[0_0_15px_rgba(204,163,83,0.2)] hover:shadow-[0_0_25px_rgba(204,163,83,0.4)]'
+                    ? 'border-[#0f172a]/30 bg-[#0f172a]/5 text-[#0f172a] hover:bg-[#0f172a] hover:border-[#0f172a] hover:text-white shadow-[0_8px_20px_rgba(15,23,42,0.08)]' 
+                    : 'border-[var(--color-luxury-gold)]/40 bg-[var(--color-luxury-gold)]/10 text-[var(--color-luxury-beige)] hover:bg-[var(--color-luxury-gold)] hover:text-black shadow-sm'
                 }`}
               >
-                <PhoneCall size={12} className={isScrolled ? 'text-[#162436] transition-colors group-hover:text-white' : 'text-[#cca353]'} />
-                Get Quote
+                <PhoneCall size={12} className={isScrolled ? 'text-[#0f172a] transition-colors group-hover:text-white' : 'text-[var(--color-luxury-gold)] group-hover:text-black'} />
+                Get Consultation
               </a>
             </Magnetic>
           </div>
@@ -92,7 +85,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             className={`md:hidden p-2 rounded-xl transition-colors duration-300 ${
-              isScrolled ? 'text-[#162436] hover:bg-black/5' : 'text-white hover:bg-white/5'
+              isScrolled ? 'text-[#0f172a] hover:bg-black/5' : 'text-white hover:bg-white/5'
             }`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle Menu"
@@ -109,7 +102,7 @@ export default function Navbar() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="md:hidden absolute top-full left-4 right-4 mt-2 rounded-2xl bg-[#0f1825]/95 backdrop-blur-xl border border-white/10 shadow-2xl py-8 px-6 flex flex-col gap-5"
+              className="md:hidden absolute top-full left-4 right-4 mt-2 rounded-2xl bg-[#0b0f19]/95 backdrop-blur-xl border border-white/10 shadow-2xl py-8 px-6 flex flex-col gap-5"
             >
               {navLinks.map((link) => (
                 <a
@@ -124,10 +117,10 @@ export default function Navbar() {
               <a
                 href="#contact"
                 onClick={() => setMobileMenuOpen(false)}
-                className="mt-4 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[#cca353]/40 bg-[#cca353]/20 text-[#ede7d7] text-xs font-bold tracking-wider uppercase shadow-lg text-center"
+                className="mt-4 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[var(--color-accent-blue)]/40 bg-[var(--color-accent-blue)]/20 text-[#f1f5f9] text-xs font-bold tracking-wider uppercase shadow-lg text-center"
               >
-                <PhoneCall size={12} className="text-[#cca353]" />
-                Get Quote
+                <PhoneCall size={12} className="text-[var(--color-accent-blue)]" />
+                Get Consultation
               </a>
             </motion.div>
           )}

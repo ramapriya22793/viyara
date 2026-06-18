@@ -4,9 +4,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-[#162436] pt-24 pb-12 border-t border-white/5 overflow-hidden text-[#f1f5f9]">
+    <footer className="relative bg-[#0b0f19] pt-24 pb-12 border-t border-white/5 overflow-hidden text-[#f1f5f9]">
       {/* Decorative background overlay */}
-      <div className="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(ellipse_at_bottom,rgba(22,36,54,0.4)_0%,transparent_75%)] pointer-events-none" />
+      <div className="absolute inset-0 z-0 opacity-20 bg-[radial-gradient(ellipse_at_bottom,rgba(11,15,25,0.4)_0%,transparent_75%)] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
@@ -16,11 +16,6 @@ export default function Footer() {
           {/* Brand Presentation */}
           <div className="space-y-6">
             <a href="#home" className="flex items-center gap-2.5 group inline-flex cursor-pointer">
-              <img
-                src="/logo-white.png"
-                alt="VIYARA Logo"
-                className="w-8 h-8 object-contain"
-              />
               <span className="font-sans font-extrabold text-xl tracking-tight text-[#f1f5f9]">
                 VIYARA
               </span>
