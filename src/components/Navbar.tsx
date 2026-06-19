@@ -6,6 +6,7 @@ import Magnetic from './Magnetic';
 const navLinks = [
   { name: 'Home', href: '#home' },
   { name: 'Services', href: '#services' },
+  { name: 'Projects', href: '#portfolio' },
   { name: 'About', href: '#about' },
   { name: 'Why VIYARA', href: '#why-VIYARA' },
   { name: 'Methodology', href: '#methodology' },

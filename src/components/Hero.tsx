@@ -168,9 +168,9 @@ export default function Hero() {
       </div>
 
       {/* Marquee Footer Banner */}
-      <div className="w-full bg-[#0f040d]/80 py-7 border-t border-[var(--color-luxury-plum)]/20 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-3">
-          <p className="text-[10px] tracking-[0.25em] uppercase font-bold text-[var(--color-luxury-beige)]/80 text-center">
+      <div className="w-full bg-[#0d070c]/90 py-7 border-t border-[var(--color-luxury-plum)]/20 relative z-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-4">
+          <p className="text-[11px] tracking-[0.3em] uppercase font-extrabold text-[#e2e8f0] text-center">
             Pioneering digital infrastructures in key sectors
           </p>
         </div>
@@ -181,10 +181,10 @@ export default function Hero() {
             {[...marqueeTechs, ...marqueeTechs, ...marqueeTechs].map((tech, i) => (
               <div 
                 key={i} 
-                className="flex items-center gap-3 px-6 py-2 rounded-2xl bg-white/8 border border-white/15 hover:border-[var(--color-luxury-gold)]/50 hover:scale-105 transition-all duration-300"
+                className="flex items-center gap-3 px-6 py-2.5 rounded-2xl bg-white/12 border border-white/20 hover:border-white/50 hover:bg-white/20 hover:scale-105 transition-all duration-300 shadow-md"
               >
-                <div className="w-2 h-2 rounded-full bg-[var(--color-luxury-gold)] animate-pulse flex-shrink-0" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-luxury-beige)] whitespace-nowrap opacity-90">
+                <div className="w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
+                <span className="text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-white whitespace-nowrap">
                   {tech.name}
                 </span>
               </div>

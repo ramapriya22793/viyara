@@ -31,17 +31,15 @@ export default function About() {
             <Quote size={64} fill="currentColor" />
           </div>
 
-          <div className="space-y-4 flex flex-col items-center">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--color-accent-blue)]/10 border border-[var(--color-accent-blue)]/20 text-xs font-bold tracking-[0.18em] text-[#93c5fd] uppercase">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] animate-pulse" />
-              Leadership
-            </span>
-          </div>
-
           {/* Quote Text */}
-          <p className="text-white text-lg md:text-2xl leading-relaxed italic font-serif font-medium max-w-2xl mx-auto relative z-10">
-            "Beyond technology, VIYARA provides complete visual marketing and content solutions — empowering brands to dominate their market and build a future-ready digital ecosystem."
-          </p>
+          <div className="text-white text-base md:text-lg leading-relaxed italic font-serif font-medium max-w-2xl mx-auto relative z-10 space-y-4 text-center">
+            <p>
+              “My entrepreneurial journey began with a passion for building impactful brands and meaningful digital experiences. Through VIYARA, I focus on creating powerful visual marketing, premium content strategies, and future-ready digital solutions that help businesses grow with confidence.
+            </p>
+            <p>
+              At VIYARA, our mission is to blend creativity, branding, and technology to deliver visually compelling experiences that strengthen brand identity and drive long-term success. We believe every business deserves a digital presence that is modern, authentic, and built to stand out.”
+            </p>
+          </div>
 
           {/* Divider */}
           <div className="h-[1px] bg-white/10 w-20 mx-auto" />
@@ -52,7 +50,7 @@ export default function About() {
             <div className="relative w-16 h-16 rounded-full p-0.5 bg-white/10 border border-white/20 shadow-lg overflow-hidden shrink-0">
               <img 
                 src={founderImg} 
-                alt="Ragapriya Karunakaran - Co-Founder of VIYARA" 
+                alt="Ragapriya Karunakaran - Founder of VIYARA" 
                 className="w-full h-full object-cover rounded-full filter brightness-95 contrast-101"
               />
             </div>
@@ -63,7 +61,7 @@ export default function About() {
                 Ragapriya Karunakaran
               </h4>
               <p className="text-[#60a5fa] font-bold text-xs tracking-wider uppercase mt-1">
-                Co-Founder &amp; Director
+                Founder
               </p>
             </div>
           </div>

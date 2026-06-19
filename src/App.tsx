@@ -4,6 +4,7 @@ import Lenis from 'lenis';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Services from './components/Services';
+import Portfolio from './components/Portfolio';
 import About from './components/About';
 import WhyChoose from './components/WhyChoose';
 import Process from './components/Process';
@@ -11,6 +12,7 @@ import TechStack from './components/TechStack';
 import FinalCTA from './components/FinalCTA';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
+import CustomCursor from './components/CustomCursor';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,6 +46,9 @@ function App() {
 
   return (
     <div className="bg-[#ffffff] min-h-screen text-[#0f172a] antialiased selection:bg-[#162436]/15 selection:text-[#162436]">
+      {/* Custom Cursor */}
+      <CustomCursor />
+
       {/* Loading Screen */}
       <LoadingScreen onComplete={() => setIsLoading(false)} />
 
@@ -62,6 +67,7 @@ function App() {
             {/* Sections in user recommended sequence */}
             <Hero />
             <Services />
+            <Portfolio />
             <About />
             <WhyChoose />
             <Process />
