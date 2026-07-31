@@ -1,10 +1,40 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, ExternalLink, ChevronLeft, ChevronRight, Sparkles } from 'lucide-react';
 
 const projects = [
   {
     id: '01',
+    title: 'PAIDHU',
+    category: 'The Edible Flower Co. & Organic Delights',
+    website: 'https://paidhu.com/',
+    description: 'Paidhu is an ethical food brand crafting 100% natural flower-infused Bloom Cookies, artisanal petal jams, organic teas, and pure Kashmiri Mongra saffron.',
+    tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'E-commerce', 'Framer Motion'],
+    features: [
+      'Bloom Cookies (Lotus, Hibiscus, Aavaram)',
+      'Artisanal Hibiscus & Rose Petal Jams',
+      '100% Pure Kashmiri Mongra Saffron',
+      'Organic Blue Pea & Hibiscus Teas',
+      'Clean Sourcing & 0% Preservatives'
+    ],
+    visualType: 'paidhu',
+    theme: {
+      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(102,38,84,0.15)]',
+      borderColor: 'border-[#662654]/30 hover:border-[#662654]',
+      hoverGlow: 'from-[#662654]/10 via-[#EDE707]/20 to-transparent',
+      titleColor: 'text-[#662654]',
+      descriptionColor: 'text-gray-600',
+      featureTextColor: 'text-gray-700',
+      dividerColor: 'bg-gray-200',
+      categoryColor: 'text-[#662654]',
+      idHoverColor: 'group-hover:text-[#662654]',
+      dotColor: 'bg-[#662654] shadow-[0_0_10px_#662654]',
+      tagBg: 'bg-[#662654]/10 text-[#662654] border-[#662654]/25 font-semibold',
+      btnStyle: 'bg-[#662654] text-[#EDE707] hover:bg-[#501d42] font-bold shadow-md shadow-purple-900/20'
+    }
+  },
+  {
+    id: '02',
     title: 'KALIKA SPHERE',
     category: '360° Space for Skill Development & Child Programs',
     website: 'https://www.kalikasphere.com/',
@@ -34,7 +64,7 @@ const projects = [
     }
   },
   {
-    id: '02',
+    id: '03',
     title: 'PRINK',
     category: 'Personalized Gifts, Miniatures & Printing Platform',
     website: 'https://www.theprink.in/',
@@ -61,36 +91,6 @@ const projects = [
       dotColor: 'bg-[#FF3B5C] shadow-[0_0_10px_#FF3B5C]',
       tagBg: 'bg-[#FF3B5C]/10 text-[#e61e43] border-[#FF3B5C]/25 font-semibold',
       btnStyle: 'bg-[#FF3B5C] text-white hover:bg-[#e61e43] shadow-md shadow-rose-500/20'
-    }
-  },
-  {
-    id: '03',
-    title: 'PAIDHU',
-    category: 'The Edible Flower Co. & Organic Delights',
-    website: 'https://paidhu.com/',
-    description: 'Paidhu is an ethical food brand crafting 100% natural flower-infused Bloom Cookies, artisanal petal jams, organic teas, and pure Kashmiri Mongra saffron.',
-    tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'E-commerce', 'Framer Motion'],
-    features: [
-      'Bloom Cookies (Lotus, Hibiscus, Aavaram)',
-      'Artisanal Hibiscus & Rose Petal Jams',
-      '100% Pure Kashmiri Mongra Saffron',
-      'Organic Blue Pea & Hibiscus Teas',
-      'Clean Sourcing & 0% Preservatives'
-    ],
-    visualType: 'paidhu',
-    theme: {
-      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(102,38,84,0.15)]',
-      borderColor: 'border-[#662654]/30 hover:border-[#662654]',
-      hoverGlow: 'from-[#662654]/10 via-[#EDE707]/20 to-transparent',
-      titleColor: 'text-[#662654]',
-      descriptionColor: 'text-gray-600',
-      featureTextColor: 'text-gray-700',
-      dividerColor: 'bg-gray-200',
-      categoryColor: 'text-[#662654]',
-      idHoverColor: 'group-hover:text-[#662654]',
-      dotColor: 'bg-[#662654] shadow-[0_0_10px_#662654]',
-      tagBg: 'bg-[#662654]/10 text-[#662654] border-[#662654]/25 font-semibold',
-      btnStyle: 'bg-[#662654] text-[#EDE707] hover:bg-[#501d42] font-bold shadow-md shadow-purple-900/20'
     }
   },
   {
@@ -127,41 +127,41 @@ const projects = [
 
 const KalikaMockup = () => {
   return (
-    <div className="relative w-full h-[340px] sm:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-[#E11D48]/30 flex items-center justify-center p-4 shadow-inner group/mockup">
-      <div className="absolute w-[300px] h-[300px] rounded-full bg-[conic-gradient(from_0deg,#E11D48,#0EA5E9,#E11D48)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-[#E11D48]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#E11D48,#0EA5E9,#E11D48)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(225,29,72,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-4 right-4 w-36 h-36 bg-[#E11D48]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-4 left-4 w-40 h-40 bg-[#0EA5E9]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#E11D48]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#0EA5E9]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#E11D48]/40 text-[10px] font-bold text-[#E11D48] shadow-lg flex items-center gap-1.5 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
-        <span className="w-2 h-2 rounded-full bg-[#E11D48] animate-ping" />
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E11D48]/40 text-[9px] font-bold text-[#E11D48] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#E11D48] animate-ping" />
         ✨ 360° Learning Ecosystem
       </div>
 
-      <div className="relative w-full max-w-[340px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-2">
+      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}
-          className="w-full rounded-2xl border border-[#E11D48]/30 bg-white shadow-[0_25px_50px_rgba(225,29,72,0.25)] group-hover/mockup:shadow-[0_35px_60px_rgba(225,29,72,0.35)] overflow-hidden transition-all duration-300"
+          className="w-full rounded-2xl border border-[#E11D48]/30 bg-white shadow-[0_20px_40px_rgba(225,29,72,0.2)] group-hover/mockup:shadow-[0_25px_50px_rgba(225,29,72,0.3)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-gray-200 bg-gray-100/95 justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-3 py-0.5 rounded-md bg-white text-[8px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
                 <span className="text-emerald-600">🔒</span> kalikasphere.com
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[7px] font-extrabold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[210px] sm:h-[230px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/kalika-home.png" 
               alt="Kalika Sphere Homepage" 
@@ -176,41 +176,41 @@ const KalikaMockup = () => {
 
 const PrinkMockup = () => {
   return (
-    <div className="relative w-full h-[340px] sm:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#FFE4E6] to-[#FECDD3] border border-[#FF3B5C]/30 flex items-center justify-center p-4 shadow-inner group/mockup">
-      <div className="absolute w-[300px] h-[300px] rounded-full bg-[conic-gradient(from_0deg,#FF3B5C,#FF8C00,#FF3B5C)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#FFE4E6] to-[#FECDD3] border border-[#FF3B5C]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#FF3B5C,#FF8C00,#FF3B5C)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,59,92,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-4 right-4 w-36 h-36 bg-[#FF3B5C]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-4 left-4 w-40 h-40 bg-[#FF3B5C]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#FF3B5C]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#FF3B5C]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#FF3B5C]/40 text-[10px] font-bold text-[#FF3B5C] shadow-lg flex items-center gap-1.5 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
-        <span className="w-2 h-2 rounded-full bg-[#FF3B5C] animate-ping" />
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#FF3B5C]/40 text-[9px] font-bold text-[#FF3B5C] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF3B5C] animate-ping" />
         🎁 Automated Print Commerce
       </div>
 
-      <div className="relative w-full max-w-[340px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-2">
+      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}
-          className="w-full rounded-2xl border border-[#FF3B5C]/30 bg-white shadow-[0_25px_50px_rgba(255,59,92,0.25)] group-hover/mockup:shadow-[0_35px_60px_rgba(255,59,92,0.35)] overflow-hidden transition-all duration-300"
+          className="w-full rounded-2xl border border-[#FF3B5C]/30 bg-white shadow-[0_20px_40px_rgba(255,59,92,0.25)] group-hover/mockup:shadow-[0_25px_50px_rgba(255,59,92,0.35)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-gray-200 bg-gray-100/95 justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-3 py-0.5 rounded-md bg-white text-[8px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
                 <span className="text-emerald-600">🔒</span> theprink.in
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[7px] font-extrabold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[210px] sm:h-[230px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/prink-home.png" 
               alt="The Prink Homepage" 
@@ -225,41 +225,41 @@ const PrinkMockup = () => {
 
 const PaidhuMockup = () => {
   return (
-    <div className="relative w-full h-[340px] sm:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#fdf4fb] via-[#f8e7f5] to-[#f3d5ee] border border-[#662654]/30 flex items-center justify-center p-4 shadow-inner group/mockup">
-      <div className="absolute w-[300px] h-[300px] rounded-full bg-[conic-gradient(from_0deg,#662654,#EDE707,#662654)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#fdf4fb] via-[#f8e7f5] to-[#f3d5ee] border border-[#662654]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#662654,#EDE707,#662654)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(102,38,84,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-4 right-4 w-36 h-36 bg-[#662654]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-4 left-4 w-40 h-40 bg-[#EDE707]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#662654]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#EDE707]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#662654]/40 text-[10px] font-bold text-[#662654] shadow-lg flex items-center gap-1.5 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
-        <span className="w-2 h-2 rounded-full bg-[#662654] animate-ping" />
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#662654]/40 text-[9px] font-bold text-[#662654] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#662654] animate-ping" />
         🌸 100% Organic Floral Foods
       </div>
 
-      <div className="relative w-full max-w-[340px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-2">
+      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}
-          className="w-full rounded-2xl border border-[#662654]/30 bg-white shadow-[0_25px_50px_rgba(102,38,84,0.28)] group-hover/mockup:shadow-[0_35px_60px_rgba(102,38,84,0.38)] overflow-hidden transition-all duration-300"
+          className="w-full rounded-2xl border border-[#662654]/30 bg-white shadow-[0_20px_40px_rgba(102,38,84,0.28)] group-hover/mockup:shadow-[0_25px_50px_rgba(102,38,84,0.38)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-gray-200 bg-gray-100/95 justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-3 py-0.5 rounded-md bg-white text-[8px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
                 <span className="text-emerald-600">🔒</span> paidhu.com
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[7px] font-extrabold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[210px] sm:h-[230px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/paidhu-home.png" 
               alt="Paidhu Homepage" 
@@ -274,41 +274,41 @@ const PaidhuMockup = () => {
 
 const FloffiMockup = () => {
   return (
-    <div className="relative w-full h-[340px] sm:h-[400px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA] border border-[#FF8C00]/30 flex items-center justify-center p-4 shadow-inner group/mockup">
-      <div className="absolute w-[300px] h-[300px] rounded-full bg-[conic-gradient(from_0deg,#FF8C00,#F2EFCF,#FF8C00)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA] border border-[#FF8C00]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#FF8C00,#F2EFCF,#FF8C00)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,140,0,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-4 right-4 w-36 h-36 bg-[#FF8C00]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-4 left-4 w-40 h-40 bg-[#FF8C00]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#FF8C00]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#FF8C00]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-4 left-4 z-20 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#FF8C00]/40 text-[10px] font-bold text-[#FF8C00] shadow-lg flex items-center gap-1.5 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
-        <span className="w-2 h-2 rounded-full bg-[#FF8C00] animate-ping" />
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#FF8C00]/40 text-[9px] font-bold text-[#FF8C00] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#FF8C00] animate-ping" />
         🍯 Gourmet Nectar &amp; Spreads
       </div>
 
-      <div className="relative w-full max-w-[340px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-2">
+      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}
-          className="w-full rounded-2xl border border-[#FF8C00]/30 bg-white shadow-[0_25px_50px_rgba(255,140,0,0.28)] group-hover/mockup:shadow-[0_35px_60px_rgba(255,140,0,0.38)] overflow-hidden transition-all duration-300"
+          className="w-full rounded-2xl border border-[#FF8C00]/30 bg-white shadow-[0_20px_40px_rgba(255,140,0,0.28)] group-hover/mockup:shadow-[0_25px_50px_rgba(255,140,0,0.38)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1.5 px-3.5 py-2.5 border-b border-gray-200 bg-gray-100/95 justify-between">
-            <div className="flex items-center gap-1.5">
-              <div className="w-2.5 h-2.5 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-3 py-0.5 rounded-md bg-white text-[8px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
                 <span className="text-emerald-600">🔒</span> floffi.in
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[7px] font-extrabold text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[210px] sm:h-[230px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/floffi-home.png" 
               alt="Floffi Homepage" 
@@ -335,6 +335,14 @@ export default function Portfolio() {
     setCurrentIndex((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
+  // Automatic Swipe Effect (5s interval)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextProject();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [currentIndex]);
+
   const currentProject = projects[currentIndex];
 
   const slideVariants = {
@@ -359,7 +367,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative bg-[#ffffff] overflow-hidden py-32 border-y border-[#0f172a]/5">
+    <section id="portfolio" className="relative bg-[#ffffff] overflow-hidden py-12 md:py-16 border-y border-[#0f172a]/5">
       <div 
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
@@ -371,7 +379,7 @@ export default function Portfolio() {
       <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-[#3b82f6]/5 rounded-full blur-[130px] pointer-events-none" />
 
       {/* Editorial Header */}
-      <div className="flex flex-col items-center justify-center mb-10 text-center px-6 md:px-12 relative z-10 space-y-4">
+      <div className="flex flex-col items-center justify-center mb-8 text-center px-6 md:px-12 relative z-10 space-y-4">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-xs text-slate-700 font-bold uppercase tracking-widest shadow-2xs">
           <Sparkles size={14} className="text-[#3b82f6]" />
           SWIPE &amp; EXPLORE FEATURED WORKS
@@ -413,7 +421,7 @@ export default function Portfolio() {
       </div>
 
       {/* Interactive Swipeable Single Page Slide Container */}
-      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 min-h-[580px] flex items-center justify-center [perspective:1200px]">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 min-h-[400px] flex items-center justify-center [perspective:1200px]">
         
         {/* Next / Prev Navigation Floating Arrow Buttons */}
         <button
@@ -454,7 +462,7 @@ export default function Portfolio() {
                   prevProject();
                 }
               }}
-              className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 p-8 md:p-14 rounded-[2.5rem] ${currentProject.theme.cardGradient} border border-gray-200/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.12)] relative overflow-hidden group ${currentProject.theme.borderColor} cursor-grab active:cursor-grabbing transition-shadow duration-500`}
+              className={`flex flex-col lg:flex-row items-center gap-4 lg:gap-8 p-5 sm:p-6 lg:p-8 rounded-2xl ${currentProject.theme.cardGradient} border border-gray-200/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.12)] relative overflow-hidden group ${currentProject.theme.borderColor} cursor-grab active:cursor-grabbing transition-shadow duration-500`}
             >
               {/* Soft hover ambient glow inside card */}
               <div className={`absolute inset-0 bg-gradient-to-tr ${currentProject.theme.hoverGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
@@ -463,18 +471,18 @@ export default function Portfolio() {
               <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] group-hover:translate-x-[400%] transition-transform duration-1000 ease-in-out pointer-events-none z-20" />
 
               {/* Content Column */}
-              <div className="w-full lg:w-1/2 space-y-6 relative z-10">
+              <div className="w-full lg:w-1/2 space-y-3 relative z-10">
                 <div className="flex items-center gap-3">
                   <span className={`text-3xl font-mono font-black opacity-35 ${currentProject.theme.idHoverColor} transition-colors duration-500`}>{currentProject.id}</span>
                   <span className={`w-10 h-[2px] ${currentProject.theme.dividerColor}`} />
                   <span className={`text-[11px] font-bold uppercase tracking-widest ${currentProject.theme.categoryColor}`}>{currentProject.category}</span>
                 </div>
 
-                <h4 className={`text-3xl md:text-5xl font-serif font-black ${currentProject.theme.titleColor} leading-tight tracking-tight`}>
+                <h4 className={`text-xl sm:text-2xl lg:text-3xl font-serif font-black ${currentProject.theme.titleColor} leading-tight tracking-tight`}>
                   {currentProject.title}
                 </h4>
 
-                <p className={`${currentProject.theme.descriptionColor} text-sm leading-relaxed font-normal`}>
+                <p className={`${currentProject.theme.descriptionColor} text-xs leading-relaxed font-normal`}>
                   {currentProject.description}
                 </p>
 
@@ -491,11 +499,11 @@ export default function Portfolio() {
                 </div>
 
                 {/* Key Features List with Hover Translate */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3.5 gap-x-6 py-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-6 py-1">
                   {currentProject.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2.5 group/feat hover:translate-x-1.5 transition-transform duration-300">
-                      <div className={`w-2 h-2 rounded-full ${currentProject.theme.dotColor} group-hover/feat:scale-125 transition-transform duration-300`} />
-                      <span className={`text-xs font-medium ${currentProject.theme.featureTextColor}`}>{feature}</span>
+                      <div className={`w-1.5 h-1.5 rounded-full ${currentProject.theme.dotColor} group-hover/feat:scale-125 transition-transform duration-300`} />
+                      <span className={`text-[11px] font-medium ${currentProject.theme.featureTextColor}`}>{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -508,7 +516,7 @@ export default function Portfolio() {
                       target="_blank"
                       rel="noopener noreferrer"
                       data-cursor-text="Visit"
-                      className={`inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full text-xs font-black tracking-wider uppercase ${currentProject.theme.btnStyle} hover:scale-105 active:scale-98 transition-all duration-300 shadow-lg relative overflow-hidden group/btn`}
+                      className={`inline-flex items-center gap-2.5 px-4 py-2 rounded-full text-xs font-black tracking-wider uppercase ${currentProject.theme.btnStyle} hover:scale-105 active:scale-98 transition-all duration-300 shadow-lg relative overflow-hidden group/btn`}
                     >
                       <span className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-[-20deg] -translate-x-full group-hover/btn:translate-x-[300%] transition-transform duration-750 ease-in-out pointer-events-none" />
                       <span>Visit Live Website</span>

@@ -11,18 +11,20 @@ export default function About() {
       badge: 'Chief Executive Officer',
       icon: Sparkles,
       image: founderImg,
+      zoomClass: 'group-hover:scale-105',
       description: 'Drives VIYARA’s overall strategic vision, brand curation, executive partnerships, and digital growth initiatives.',
       gradient: 'from-[#3b82f6]/20 to-[#8b5cf6]/20',
       borderColor: 'border-[#60a5fa]/30',
       tagColor: 'bg-[#60a5fa]/10 text-[#60a5fa] border-[#60a5fa]/30'
     },
     {
-      name: 'Rama Priya',
+      name: 'Ramapriya Karthikeyan',
       role: 'CTO',
       badge: 'Chief Technology Officer',
       icon: Code,
       image: ctoImg,
-      initials: 'RP',
+      initials: 'RK',
+      zoomClass: 'scale-[2.5] origin-[50%_20%] group-hover:scale-[2.65]',
       description: 'Spearheads technology architecture, full-stack software development, cloud infrastructure, and technical innovation.',
       gradient: 'from-[#06b6d4]/20 to-[#3b82f6]/20',
       borderColor: 'border-[#22d3ee]/30',
@@ -101,7 +103,7 @@ export default function About() {
                         <img 
                           src={member.image} 
                           alt={`${member.name} - ${member.role}`} 
-                          className="w-full h-full object-cover rounded-2xl filter brightness-95 contrast-101 group-hover:scale-105 transition-transform duration-500"
+                          className={`w-full h-full object-cover rounded-2xl filter brightness-95 contrast-101 transition-transform duration-500 ${member.zoomClass || 'group-hover:scale-105'}`}
                         />
                       </div>
                     ) : (
