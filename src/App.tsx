@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
 import Careers from './components/Careers';
+import SimpleForm from './components/SimpleForm';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -59,6 +60,9 @@ function App() {
     };
   }, [isLoading]);
 
+  // Determine if we should render standalone Name/Phone Form based on subdomain or hash path
+  const isFormSubdomain = window.location.hostname.startsWith('form.') || currentHash === '#form-only';
+
   return (
     <div className="bg-[#ffffff] min-h-screen text-[#0f172a] antialiased selection:bg-[#162436]/15 selection:text-[#162436]">
       {/* Custom Cursor */}
@@ -69,32 +73,38 @@ function App() {
 
       {!isLoading && (
         <AnimatePresence>
-          {/* Scroll Progress Bar */}
-          <motion.div
-            style={{ scaleX }}
-            className="fixed top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#162436] via-[#3f6a9e] to-[#162436] origin-left z-[100] rounded-r-full"
-          />
-
-          {/* Sticky Header */}
-          <Navbar />
-
-          {currentHash === '#careers' ? (
-            <Careers />
+          {isFormSubdomain ? (
+            <SimpleForm />
           ) : (
-            <main>
-              {/* Sections in user recommended sequence */}
-              <Hero />
-              <Services />
-              <Portfolio />
-              <About />
-              <WhyChoose />
-              <Process />
-              <TechStack />
-              <FinalCTA />
-            </main>
-          )}
+            <>
+              {/* Scroll Progress Bar */}
+              <motion.div
+                style={{ scaleX }}
+                className="fixed top-0 left-0 right-0 h-[4px] bg-gradient-to-r from-[#162436] via-[#3f6a9e] to-[#162436] origin-left z-[100] rounded-r-full"
+              />
 
-          <Footer />
+              {/* Sticky Header */}
+              <Navbar />
+
+              {currentHash === '#careers' ? (
+                <Careers />
+              ) : (
+                <main>
+                  {/* Sections in user recommended sequence */}
+                  <Hero />
+                  <Services />
+                  <Portfolio />
+                  <About />
+                  <WhyChoose />
+                  <Process />
+                  <TechStack />
+                  <FinalCTA />
+                </main>
+              )}
+
+              <Footer />
+            </>
+          )}
         </AnimatePresence>
       )}
     </div>
