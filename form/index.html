@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viyara | Contact Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #162436;
+      --accent: #E8CFA7;
+      --bg: #0b0f19;
+      --card-bg: rgba(22, 36, 54, 0.45);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Ambient glowing background meshes */
+    .glow-1 {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(232, 207, 167, 0.08) 0%, transparent 60%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-2 {
+      position: absolute;
+      bottom: -10%;
+      right: -10%;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(63, 106, 158, 0.15) 0%, transparent 60%);
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Tech grid overlay */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 450px;
+      padding: 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 0 12px rgba(255, 255, 255, 0.03);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .form-group {
+      position: relative;
+      margin-bottom: 28px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 14px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .input-field:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 4px rgba(232, 207, 167, 0.15);
+    }
+
+    /* Floating Labels Styling */
+    .form-label {
+      position: absolute;
+      left: 18px;
+      top: 17px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-muted);
+      pointer-events: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .input-field:focus ~ .form-label,
+    .input-field:not(:placeholder-shown) ~ .form-label {
+      transform: translateY(-24px) scale(0.85);
+      left: 14px;
+      color: var(--accent);
+      font-weight: 500;
+      background-color: #0d121e; /* Match approximate backdrop background for crisp mask look */
+      padding: 0 6px;
+    }
+
+    .error-msg {
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      color: #f87171;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .error-msg.visible {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+      margin-top: 6px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 16px;
+      background: var(--text);
+      border: none;
+      border-radius: 12px;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn-submit:hover {
+      background: var(--accent);
+      color: var(--primary);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(232, 207, 167, 0.25);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-submit svg {
+      transition: transform 0.3s ease;
+    }
+
+    .btn-submit:hover svg {
+      transform: translateX(4px);
+    }
+
+    .btn-submit:disabled {
+      background: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.4);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Success state styles */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: rgba(34, 197, 94, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .success-icon {
+      color: #22c55e;
+    }
+
+    .success-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .success-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 24px;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      display: none;
+      width: 20px;
+      height: 20px;
+      border: 2px solid rgba(22, 36, 54, 0.2);
+      border-top-color: var(--primary);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes scaleUp {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.4s ease forwards;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glows -->
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="container">
+    <div class="card">
+      
+      <!-- Contact Form -->
+      <div id="form-container">
+        <div class="header">
+          <h1 class="logo">Viyara<span>.</span></h1>
+          <p class="subtitle">Enter your contact details to get in touch</p>
+        </div>
+
+        <form id="contact-form" autocomplete="off" novalidate>
+          
+          <!-- Full Name -->
+          <div class="form-group">
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              class="input-field" 
+              placeholder=" " 
+              required
+            >
+            <label for="name" class="form-label">Full Name</label>
+            <div id="name-error" class="error-msg">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Please enter your full name</span>
+            </div>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="form-group">
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              class="input-field" 
+              placeholder=" " 
+              required
+            >
+            <label for="phone" class="form-label">Phone Number</label>
+            <div id="phone-error" class="error-msg">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Please enter a valid phone number</span>
+            </div>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" id="submit-btn" class="btn-submit">
+            <span id="btn-text">Submit Details</span>
+            <div id="btn-spinner" class="spinner"></div>
+            <svg id="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="success-screen" class="success-screen">
+        <div class="success-icon-wrap">
+          <svg class="success-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 class="success-title">Submission Successful</h2>
+        <p class="success-text">Thank you for sharing your details. Our representative will contact you shortly.</p>
+        <button type="button" id="back-btn" class="btn-submit" style="background: rgba(255, 255, 255, 0.05); color: var(--text); border: 1px solid var(--border); box-shadow: none;">
+          Back to Form
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const formContainer = document.getElementById('form-container');
+    const successScreen = document.getElementById('success-screen');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const btnArrow = document.getElementById('btn-arrow');
+    const backBtn = document.getElementById('back-btn');
+
+    // Validation
+    const nameInput = document.getElementById('name');
+    const phoneInput = document.getElementById('phone');
+    const nameError = document.getElementById('name-error');
+    const phoneError = document.getElementById('phone-error');
+
+    function validateName() {
+      if (!nameInput.value.trim()) {
+        nameError.classList.add('visible');
+        nameInput.style.borderColor = '#f87171';
+        return false;
+      } else {
+        nameError.classList.remove('visible');
+        nameInput.style.borderColor = '';
+        return true;
+      }
+    }
+
+    function validatePhone() {
+      const phoneVal = phoneInput.value.trim();
+      const phoneRegex = /^[+]?[0-9\s-]{10,15}$/; // Standard broad format validator
+      if (!phoneVal) {
+        phoneError.querySelector('span').innerText = 'Please enter your phone number';
+        phoneError.classList.add('visible');
+        phoneInput.style.borderColor = '#f87171';
+        return false;
+      } else if (!phoneRegex.test(phoneVal.replace(/\s+/g, ''))) {
+        phoneError.querySelector('span').innerText = 'Please enter a valid phone number (10-15 digits)';
+        phoneError.classList.add('visible');
+        phoneInput.style.borderColor = '#f87171';
+        return false;
+      } else {
+        phoneError.classList.remove('visible');
+        phoneInput.style.borderColor = '';
+        return true;
+      }
+    }
+
+    nameInput.addEventListener('input', () => {
+      if (nameError.classList.contains('visible')) validateName();
+    });
+
+    phoneInput.addEventListener('input', () => {
+      if (phoneError.classList.contains('visible')) validatePhone();
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const isNameValid = validateName();
+      const isPhoneValid = validatePhone();
+
+      if (!isNameValid || !isPhoneValid) return;
+
+      // Submit loading state
+      submitBtn.disabled = true;
+      btnText.innerText = 'Submitting...';
+      btnSpinner.style.display = 'block';
+      btnArrow.style.display = 'none';
+
+      // Simulate API submit call
+      setTimeout(() => {
+        // Switch views
+        formContainer.classList.add('fade-out');
+        
+        setTimeout(() => {
+          formContainer.style.display = 'none';
+          successScreen.style.display = 'block';
+          successScreen.classList.add('fade-in');
+          
+          // Reset button states
+          submitBtn.disabled = false;
+          btnText.innerText = 'Submit Details';
+          btnSpinner.style.display = 'none';
+          btnArrow.style.display = 'block';
+        }, 400);
+
+      }, 1500);
+    });
+
+    backBtn.addEventListener('click', () => {
+      successScreen.classList.remove('fade-in');
+      successScreen.classList.add('fade-out');
+
+      setTimeout(() => {
+        successScreen.style.display = 'none';
+        successScreen.classList.remove('fade-out');
+        form.reset();
+        
+        formContainer.style.display = 'block';
+        formContainer.classList.remove('fade-out');
+        formContainer.classList.add('fade-in');
+      }, 400);
+    });
+  </script>
+</body>
+</html>
