@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ArrowRight } from 'lucide-react';
+import { supabase } from '../services/supabaseClient';
 
 export default function SimpleForm() {
   const [formData, setFormData] = useState({
@@ -41,16 +42,33 @@ export default function SimpleForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
-    // Simulate server submit
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const { error } = await supabase
+        .from('contacts')
+        .insert([
+          {
+            name: formData.name.trim(),
+            phone: formData.phone.trim()
+          }
+        ]);
+
+      if (error) throw error;
+
       setIsSubmitted(true);
-    }, 1500);
+    } catch (err: any) {
+      console.error('Error saving contact to database:', err);
+      setErrors(prev => ({
+        ...prev,
+        submit: err.message || 'Failed to submit details. Please try again.'
+      }));
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -144,6 +162,12 @@ export default function SimpleForm() {
                       </span>
                     )}
                   </div>
+
+                  {errors.submit && (
+                    <div className="p-3.5 bg-red-500/10 border border-red-500/20 rounded-xl text-xs text-red-400 font-inter mb-4 text-center">
+                      {errors.submit}
+                    </div>
+                  )}
 
                   {/* Submit Button */}
                   <div className="pt-2">
