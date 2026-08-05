@@ -80,7 +80,7 @@ export default function SimpleForm() {
               >
                 {/* Header */}
                 <div className="text-center mb-9">
-                  <h1 className="text-2xl font-extrabold tracking-tight uppercase text-white mb-2">
+                  <h1 className="font-sans text-2xl font-bold tracking-tight uppercase text-white mb-2">
                     Viyara<span className="text-[#E8CFA7]">.</span>
                   </h1>
                   <p className="text-xs text-slate-400 font-light font-inter">
