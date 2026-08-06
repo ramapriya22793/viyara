@@ -394,7 +394,7 @@ const PaidhuSaffronMockup = () => {
 
           <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
             <img 
-              src="/projects/paidhu-home.png" 
+              src="/projects/paidhu-saffron.png" 
               alt="Paidhu Saffron Homepage" 
               className="w-full h-full object-cover object-top group-hover/mockup:scale-105 transition-transform duration-700"
             />
