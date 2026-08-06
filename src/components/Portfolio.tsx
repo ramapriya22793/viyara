@@ -524,7 +524,7 @@ export default function Portfolio() {
         <button
           onClick={prevProject}
           aria-label="Previous Project"
-          className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 border border-slate-300 text-slate-800 flex items-center justify-center shadow-xl hover:bg-slate-900 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer backdrop-blur-md"
+          className="hidden sm:flex absolute left-2 md:left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 border border-slate-300 text-slate-800 items-center justify-center shadow-xl hover:bg-slate-900 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer backdrop-blur-md"
         >
           <ChevronLeft size={24} />
         </button>
@@ -532,7 +532,7 @@ export default function Portfolio() {
         <button
           onClick={nextProject}
           aria-label="Next Project"
-          className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 border border-slate-300 text-slate-800 flex items-center justify-center shadow-xl hover:bg-slate-900 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer backdrop-blur-md"
+          className="hidden sm:flex absolute right-2 md:right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 border border-slate-300 text-slate-800 items-center justify-center shadow-xl hover:bg-slate-900 hover:text-white hover:scale-110 active:scale-95 transition-all duration-300 cursor-pointer backdrop-blur-md"
         >
           <ChevronRight size={24} />
         </button>
@@ -559,7 +559,7 @@ export default function Portfolio() {
                   prevProject();
                 }
               }}
-              className={`flex flex-col lg:flex-row items-center gap-4 lg:gap-8 p-5 sm:p-6 lg:p-8 rounded-2xl ${currentProject.theme.cardGradient} border border-gray-200/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.12)] relative overflow-hidden group ${currentProject.theme.borderColor} cursor-grab active:cursor-grabbing transition-shadow duration-500`}
+              className={`flex flex-col lg:flex-row items-center gap-3 lg:gap-8 p-4 sm:p-6 lg:p-8 rounded-2xl ${currentProject.theme.cardGradient} border border-gray-200/80 backdrop-blur-xl shadow-[0_25px_70px_rgba(0,0,0,0.12)] relative overflow-hidden group ${currentProject.theme.borderColor} cursor-grab active:cursor-grabbing transition-shadow duration-500`}
             >
               {/* Soft hover ambient glow inside card */}
               <div className={`absolute inset-0 bg-gradient-to-tr ${currentProject.theme.hoverGlow} opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
@@ -568,7 +568,7 @@ export default function Portfolio() {
               <div className="absolute top-0 -left-[100%] w-1/2 h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] group-hover:translate-x-[400%] transition-transform duration-1000 ease-in-out pointer-events-none z-20" />
 
               {/* Content Column */}
-              <div className="w-full lg:w-1/2 space-y-3 relative z-10">
+              <div className="w-full lg:w-1/2 space-y-2.5 sm:space-y-3 relative z-10">
                 <div className="flex items-center gap-3">
                   <span className={`text-3xl font-mono font-black opacity-35 ${currentProject.theme.idHoverColor} transition-colors duration-500`}>{currentProject.id}</span>
                   <span className={`w-10 h-[2px] ${currentProject.theme.dividerColor}`} />
@@ -597,7 +597,7 @@ export default function Portfolio() {
                   {currentProject.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className={`text-[10px] font-semibold px-3 py-1 rounded-full border backdrop-blur-md hover:scale-105 transition-transform duration-200 shadow-2xs ${currentProject.theme.tagBg}`}
+                      className={`text-[10px] font-semibold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border backdrop-blur-md hover:scale-105 transition-transform duration-200 shadow-2xs ${currentProject.theme.tagBg}`}
                     >
                       {tag}
                     </span>
@@ -605,7 +605,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Key Features List with Hover Translate */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1.5 gap-x-6 py-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-y-1.5 gap-x-6 py-0.5 sm:py-1">
                   {currentProject.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2.5 group/feat hover:translate-x-1.5 transition-transform duration-300">
                       <div className={`w-1.5 h-1.5 rounded-full ${currentProject.theme.dotColor} group-hover/feat:scale-125 transition-transform duration-300`} />
@@ -615,7 +615,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Animated Action Button */}
-                <div className="flex flex-wrap gap-4 pt-4">
+                <div className="flex flex-wrap gap-3 pt-2 sm:pt-4">
                   {currentProject.website !== '#' ? (
                     <a
                       href={currentProject.website}
