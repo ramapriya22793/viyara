@@ -36,6 +36,37 @@ const projects = [
   },
   {
     id: '02',
+    title: 'PAIDHU SAFFRON',
+    category: '100% Pure Kashmiri Mongra Saffron',
+    website: 'https://paidhusaffron.com/',
+    description: 'Paidhu Saffron brings the world’s finest A++ grade Kashmiri Mongra Saffron, handpicked directly from the fields of Pampore, Kashmir. Rich in crocin and natural therapeutic benefits.',
+    tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'Brand Strategy', 'Premium Sourcing'],
+    features: [
+      'A++ Grade Kashmiri Mongra Saffron',
+      'Rich in Crocin, Safranal & Picrocrocin',
+      'Handpicked directly from Pampore Fields',
+      '100% Lab Tested & Certified Pure',
+      'Luxury Moisture-Lock Packaging'
+    ],
+    visualType: 'paidhusaffron',
+    theme: {
+      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(185,28,28,0.15)]',
+      borderColor: 'border-[#B91C1C]/30 hover:border-[#B91C1C]',
+      hoverGlow: 'from-[#B91C1C]/10 via-[#F59E0B]/20 to-transparent',
+      titleColor: 'text-[#B91C1C]',
+      descriptionColor: 'text-gray-600',
+      featureTextColor: 'text-gray-700',
+      dividerColor: 'bg-gray-200',
+      categoryColor: 'text-[#B91C1C]',
+      idHoverColor: 'group-hover:text-[#B91C1C]',
+      dotColor: 'bg-[#B91C1C] shadow-[0_0_10px_#B91C1C]',
+      tagBg: 'bg-[#B91C1C]/10 text-[#B91C1C] border-[#B91C1C]/25 font-semibold',
+      btnStyle: 'bg-[#B91C1C] text-[#EDE707] hover:bg-[#991b1b] font-bold shadow-md shadow-red-900/20',
+      activeColor: '#B91C1C'
+    }
+  },
+  {
+    id: '03',
     title: 'KALIKA SPHERE',
     category: '360° Space for Skill Development & Child Programs',
     website: 'https://www.kalikasphere.com/',
@@ -66,7 +97,7 @@ const projects = [
     }
   },
   {
-    id: '03',
+    id: '04',
     title: 'THE PRINK',
     category: 'Personalized Gifts, Miniatures & Printing Platform',
     website: 'https://www.theprink.in/',
@@ -97,7 +128,7 @@ const projects = [
     }
   },
   {
-    id: '04',
+    id: '05',
     title: 'FLOFFI',
     category: 'Traditional Spreads, Chutneys & Gourmet Foods',
     website: 'https://www.floffi.in/',
@@ -125,37 +156,6 @@ const projects = [
       tagBg: 'bg-[#FF8C00]/10 text-[#FF8C00] border-[#FF8C00]/25 font-semibold',
       btnStyle: 'bg-[#FF8C00] text-[#F2EFCF] hover:bg-[#e07b00] font-bold shadow-md shadow-orange-500/20',
       activeColor: '#FF8C00'
-    }
-  },
-  {
-    id: '05',
-    title: 'PAIDHU SAFFRON',
-    category: '100% Pure Kashmiri Mongra Saffron',
-    website: 'https://paidhusaffron.com/',
-    description: 'Paidhu Saffron brings the world’s finest A++ grade Kashmiri Mongra Saffron, handpicked directly from the fields of Pampore, Kashmir. Rich in crocin and natural therapeutic benefits.',
-    tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'Brand Strategy', 'Premium Sourcing'],
-    features: [
-      'A++ Grade Kashmiri Mongra Saffron',
-      'Rich in Crocin, Safranal & Picrocrocin',
-      'Handpicked directly from Pampore Fields',
-      '100% Lab Tested & Certified Pure',
-      'Luxury Moisture-Lock Packaging'
-    ],
-    visualType: 'paidhusaffron',
-    theme: {
-      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(185,28,28,0.15)]',
-      borderColor: 'border-[#B91C1C]/30 hover:border-[#B91C1C]',
-      hoverGlow: 'from-[#B91C1C]/10 via-[#F59E0B]/20 to-transparent',
-      titleColor: 'text-[#B91C1C]',
-      descriptionColor: 'text-gray-600',
-      featureTextColor: 'text-gray-700',
-      dividerColor: 'bg-gray-200',
-      categoryColor: 'text-[#B91C1C]',
-      idHoverColor: 'group-hover:text-[#B91C1C]',
-      dotColor: 'bg-[#B91C1C] shadow-[0_0_10px_#B91C1C]',
-      tagBg: 'bg-[#B91C1C]/10 text-[#B91C1C] border-[#B91C1C]/25 font-semibold',
-      btnStyle: 'bg-[#B91C1C] text-[#EDE707] hover:bg-[#991b1b] font-bold shadow-md shadow-red-900/20',
-      activeColor: '#B91C1C'
     }
   }
 ];
