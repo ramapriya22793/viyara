@@ -7,7 +7,7 @@ const projects = [
     id: '01',
     title: 'PAIDHU',
     category: 'The Edible Flower Co. & Organic Delights',
-    website: 'https://paidhu.com/',
+    website: 'https://paidhuethicalfoods.com/',
     description: 'Paidhu is an ethical food brand crafting 100% natural flower-infused Bloom Cookies, artisanal petal jams, organic teas, and pure Kashmiri Mongra saffron.',
     tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'E-commerce', 'Framer Motion'],
     features: [
@@ -65,7 +65,7 @@ const projects = [
   },
   {
     id: '03',
-    title: 'PRINK',
+    title: 'THE PRINK',
     category: 'Personalized Gifts, Miniatures & Printing Platform',
     website: 'https://www.theprink.in/',
     description: 'The Prink is a premier personalized print-commerce platform specializing in handcrafted miniature frames, Spotify photo keepsakes, and occasion-based surprise gifts.',
@@ -250,7 +250,7 @@ const PaidhuMockup = () => {
               <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
               <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
               <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
-                <span className="text-emerald-600">🔒</span> paidhu.com
+                <span className="text-emerald-600">🔒</span> paidhuethicalfoods.com
               </div>
             </div>
             <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
