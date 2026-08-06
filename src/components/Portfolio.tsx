@@ -81,19 +81,19 @@ const projects = [
     ],
     visualType: 'kalikasphere',
     theme: {
-      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(225,29,72,0.15)]',
-      borderColor: 'border-[#E11D48]/30 hover:border-[#E11D48]',
-      hoverGlow: 'from-[#E11D48]/10 via-[#0EA5E9]/10 to-transparent',
-      titleColor: 'text-[#E11D48]',
+      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(227,30,36,0.12)]',
+      borderColor: 'border-red-500/30 hover:border-blue-500/60',
+      hoverGlow: 'from-red-500/5 via-blue-500/5 to-transparent',
+      titleColor: 'text-[#e31e24]',
       descriptionColor: 'text-gray-600',
       featureTextColor: 'text-gray-700',
       dividerColor: 'bg-gray-200',
-      categoryColor: 'text-[#E11D48]',
-      idHoverColor: 'group-hover:text-[#E11D48]',
-      dotColor: 'bg-[#E11D48] shadow-[0_0_10px_#E11D48]',
-      tagBg: 'bg-[#E11D48]/10 text-[#E11D48] border-[#E11D48]/25 font-semibold',
-      btnStyle: 'bg-[#E11D48] text-white hover:bg-[#be123c] shadow-md shadow-rose-500/20',
-      activeColor: '#E11D48'
+      categoryColor: 'text-[#2563eb]',
+      idHoverColor: 'group-hover:text-[#e31e24]',
+      dotColor: 'bg-[#2563eb] shadow-[0_0_10px_#2563eb]',
+      tagBg: 'bg-blue-500/5 text-[#2563eb] border-blue-500/20 font-semibold',
+      btnStyle: 'bg-gradient-to-r from-[#e31e24] to-[#2563eb] text-white hover:opacity-90 transition-opacity font-bold shadow-md shadow-red-500/10',
+      activeColor: '#e31e24'
     }
   },
   {
@@ -162,14 +162,14 @@ const projects = [
 
 const KalikaMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-[#E11D48]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#E11D48,#0EA5E9,#E11D48)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(225,29,72,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#E11D48]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#0EA5E9]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-red-500/20 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#e31e24,#2563eb,#e31e24)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,30,36,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#e31e24]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#2563eb]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#E11D48]/40 text-[9px] font-bold text-[#E11D48] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#E11D48] animate-ping" />
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-blue-500/30 text-[9px] font-bold text-[#2563eb] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb] animate-ping" />
         ✨ 360° Learning Ecosystem
       </div>
 
@@ -179,7 +179,7 @@ const KalikaMockup = () => {
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}
-          className="w-full rounded-2xl border border-[#E11D48]/30 bg-white shadow-[0_20px_40px_rgba(225,29,72,0.2)] group-hover/mockup:shadow-[0_25px_50px_rgba(225,29,72,0.3)] overflow-hidden transition-all duration-300"
+          className="w-full rounded-2xl border border-blue-500/20 bg-white shadow-[0_20px_40px_rgba(225,29,72,0.15)] group-hover/mockup:shadow-[0_25px_50px_rgba(225,29,72,0.22)] overflow-hidden transition-all duration-300"
         >
           <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
@@ -501,7 +501,17 @@ export default function Portfolio() {
                   className={`w-2 h-2 rounded-full ${isActive ? 'animate-ping' : ''}`}
                   style={{ backgroundColor: isActive ? '#ffffff' : '#94a3b8' }}
                 />
-                <span>{proj.id} {proj.title}</span>
+                <span>
+                  {proj.id}{' '}
+                  {proj.title === 'KALIKA SPHERE' ? (
+                    <>
+                      <span className={isActive ? 'text-white' : 'text-[#e31e24]'}>KALIKA</span>{' '}
+                      <span className={isActive ? 'text-white' : 'text-[#2563eb]'}>SPHERE</span>
+                    </>
+                  ) : (
+                    proj.title
+                  )}
+                </span>
               </button>
             );
           })}
@@ -566,8 +576,17 @@ export default function Portfolio() {
                   <span className={`text-[11px] font-bold uppercase tracking-widest ${currentProject.theme.categoryColor}`}>{currentProject.category}</span>
                 </div>
 
-                <h4 className={`text-xl sm:text-2xl lg:text-3xl font-serif font-black ${currentProject.theme.titleColor} leading-tight tracking-tight`}>
-                  {currentProject.title}
+                <h4 className="text-xl sm:text-2xl lg:text-3xl font-serif font-black leading-tight tracking-tight">
+                  {currentProject.title === 'KALIKA SPHERE' ? (
+                    <>
+                      <span className="text-[#e31e24]">KALIKA</span>{' '}
+                      <span className="text-[#2563eb]">SPHERE</span>
+                    </>
+                  ) : (
+                    <span className={currentProject.theme.titleColor}>
+                      {currentProject.title}
+                    </span>
+                  )}
                 </h4>
 
                 <p className={`${currentProject.theme.descriptionColor} text-xs leading-relaxed font-normal`}>
