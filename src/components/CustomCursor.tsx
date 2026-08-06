@@ -74,17 +74,17 @@ export default function CustomCursor() {
           translateY: '-50%',
         }}
         animate={{
-          width: isHovered ? (cursorText ? 84 : 56) : 24,
-          height: isHovered ? (cursorText ? 84 : 56) : 24,
+          width: isHovered ? (cursorText ? 68 : 44) : 16,
+          height: isHovered ? (cursorText ? 68 : 44) : 16,
           backgroundColor: isHovered ? 'rgba(34, 211, 238, 0.08)' : 'transparent',
           borderColor: isHovered ? 'rgba(34, 211, 238, 0.8)' : 'rgba(34, 211, 238, 0.4)',
           borderWidth: isHovered ? 1.5 : 1,
-          boxShadow: isHovered ? '0 0 15px rgba(34, 211, 238, 0.2)' : 'none',
+          boxShadow: isHovered ? '0 0 12px rgba(34, 211, 238, 0.2)' : 'none',
         }}
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-[9999] flex items-center justify-center overflow-hidden border border-solid"
+        className="fixed top-0 left-0 rounded-[4px] pointer-events-none z-[9999] flex items-center justify-center overflow-hidden border border-solid animate-[spin_6s_linear_infinite]"
       >
         {cursorText && (
-          <span className="text-[9px] uppercase font-bold tracking-widest text-cyan-400 animate-fade-in font-sans">
+          <span className="text-[8px] uppercase font-bold tracking-widest text-cyan-400 animate-fade-in font-sans">
             {cursorText}
           </span>
         )}
@@ -101,7 +101,7 @@ export default function CustomCursor() {
         animate={{
           scale: isHovered ? 0.35 : 1,
         }}
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-cyan-400 rounded-full pointer-events-none z-[9999] shadow-[0_0_8px_#22d3ee]"
+        className="fixed top-0 left-0 w-1.5 h-1.5 bg-cyan-400 rounded-[2px] pointer-events-none z-[9999] shadow-[0_0_6px_#22d3ee]"
       />
     </>
   );
