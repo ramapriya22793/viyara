@@ -112,19 +112,19 @@ const projects = [
     ],
     visualType: 'prink',
     theme: {
-      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(255,59,92,0.15)]',
-      borderColor: 'border-[#FF3B5C]/30 hover:border-[#FF3B5C]',
-      hoverGlow: 'from-[#FF3B5C]/10 via-[#FF3B5C]/5 to-transparent',
-      titleColor: 'text-[#FF3B5C]',
+      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(12,30,67,0.12)]',
+      borderColor: 'border-[#0C1E43]/30 hover:border-[#0C1E43]',
+      hoverGlow: 'from-[#0C1E43]/10 via-[#4F46E5]/10 to-transparent',
+      titleColor: 'text-[#0C1E43]',
       descriptionColor: 'text-gray-600',
       featureTextColor: 'text-gray-700',
       dividerColor: 'bg-gray-200',
-      categoryColor: 'text-[#FF3B5C]',
-      idHoverColor: 'group-hover:text-[#FF3B5C]',
-      dotColor: 'bg-[#FF3B5C] shadow-[0_0_10px_#FF3B5C]',
-      tagBg: 'bg-[#FF3B5C]/10 text-[#e61e43] border-[#FF3B5C]/25 font-semibold',
-      btnStyle: 'bg-[#FF3B5C] text-white hover:bg-[#e61e43] shadow-md shadow-rose-500/20',
-      activeColor: '#FF3B5C'
+      categoryColor: 'text-[#4F46E5]',
+      idHoverColor: 'group-hover:text-[#0C1E43]',
+      dotColor: 'bg-[#4F46E5] shadow-[0_0_10px_#4F46E5]',
+      tagBg: 'bg-indigo-500/5 text-[#4F46E5] border-indigo-500/20 font-semibold',
+      btnStyle: 'bg-[#0C1E43] text-white hover:bg-[#08142d] font-bold shadow-md shadow-indigo-900/20',
+      activeColor: '#0C1E43'
     }
   },
   {
@@ -138,8 +138,7 @@ const projects = [
       'Nectar & Aavaram Jaggery Spreads',
       'Rose Gulkand & Petal Preserves',
       'Banana Flower & Aavaram Poo Chutneys',
-      '100% Natural & Zero Preservatives',
-      'Dosa & Toast Gourmet Pairings'
+      '100% Natural & Zero Preservatives'
     ],
     visualType: 'floffi',
     theme: {
@@ -211,14 +210,14 @@ const KalikaMockup = () => {
 
 const PrinkMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#FFE4E6] to-[#FECDD3] border border-[#FF3B5C]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#FF3B5C,#FF8C00,#FF3B5C)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,59,92,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#FF3B5C]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#FF3B5C]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#E0E7FF] to-[#C7D2FE] border border-[#0C1E43]/20 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#0C1E43,#4F46E5,#0C1E43)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,30,67,0.15)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#0C1E43]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#4F46E5]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#FF3B5C]/40 text-[9px] font-bold text-[#FF3B5C] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
-        <span className="w-1.5 h-1.5 rounded-full bg-[#FF3B5C] animate-ping" />
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#0C1E43]/30 text-[9px] font-bold text-[#0C1E43] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] animate-ping" />
         🎁 Automated Print Commerce
       </div>
 
@@ -228,7 +227,7 @@ const PrinkMockup = () => {
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
           style={{ transformStyle: "preserve-3d" }}
-          className="w-full rounded-2xl border border-[#FF3B5C]/30 bg-white shadow-[0_20px_40px_rgba(255,59,92,0.25)] group-hover/mockup:shadow-[0_25px_50px_rgba(255,59,92,0.35)] overflow-hidden transition-all duration-300"
+          className="w-full rounded-2xl border border-[#0C1E43]/20 bg-white shadow-[0_20px_40px_rgba(12,30,67,0.15)] group-hover/mockup:shadow-[0_25px_50px_rgba(12,30,67,0.22)] overflow-hidden transition-all duration-300"
         >
           <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
