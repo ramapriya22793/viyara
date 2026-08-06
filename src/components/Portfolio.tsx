@@ -6,15 +6,15 @@ const projects = [
   {
     id: '01',
     title: 'PAIDHU',
-    category: 'The Edible Flower Co. & Organic Delights',
+    category: 'The Edible Flower Co. & Artisanal Delights',
     website: 'https://paidhuethicalfoods.com/',
-    description: 'Paidhu is an ethical food brand crafting 100% natural flower-infused Bloom Cookies, artisanal petal jams, organic teas, and pure Kashmiri Mongra saffron.',
+    description: 'Paidhu is an ethical food brand crafting 100% natural flower-infused Bloom Cookies, artisanal petal jams, botanical teas, and pure Kashmiri Mongra saffron.',
     tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'E-commerce', 'Framer Motion'],
     features: [
       'Bloom Cookies (Lotus, Hibiscus, Aavaram)',
       'Artisanal Hibiscus & Rose Petal Jams',
       '100% Pure Kashmiri Mongra Saffron',
-      'Organic Blue Pea & Hibiscus Teas',
+      'Blue Pea & Hibiscus Teas',
       'Clean Sourcing & 0% Preservatives'
     ],
     visualType: 'paidhu',
@@ -237,7 +237,7 @@ const PaidhuMockup = () => {
       
       <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#662654]/40 text-[9px] font-bold text-[#662654] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
         <span className="w-1.5 h-1.5 rounded-full bg-[#662654] animate-ping" />
-        🌸 100% Organic Floral Foods
+        🌸 100% Pure Floral Foods
       </div>
 
       <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
