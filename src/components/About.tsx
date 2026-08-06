@@ -125,11 +125,11 @@ export default function About() {
                     </div>
                   </div>
 
-                  <p className="font-sans text-white/70 text-xs leading-relaxed font-normal relative z-10">
+                  <p className="font-inter text-white/70 text-xs leading-relaxed font-normal relative z-10">
                     {member.description}
                   </p>
 
-                  <div className="pt-2 flex items-center gap-2 text-[11px] text-white/40 font-sans relative z-10">
+                  <div className="pt-2 flex items-center gap-2 text-[11px] text-white/40 font-inter relative z-10">
                     <IconComp size={13} className="text-[#60a5fa]" />
                     <span>{member.badge}</span>
                   </div>
