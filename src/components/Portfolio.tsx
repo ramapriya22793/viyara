@@ -161,18 +161,18 @@ const projects = [
 
 const KalikaMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-red-500/20 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#e31e24,#2563eb,#e31e24)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
+    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-red-500/20 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#e31e24,#2563eb,#e31e24)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,30,36,0.15)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#e31e24]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#2563eb]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-1 right-1 w-14 h-14 bg-[#e31e24]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1 left-1 w-16 h-16 bg-[#2563eb]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-blue-500/30 text-[9px] font-bold text-[#2563eb] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+      <div className="absolute top-2 left-2 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-blue-500/30 text-[8px] font-bold text-[#2563eb] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
         <span className="w-1.5 h-1.5 rounded-full bg-[#2563eb] animate-ping" />
         ✨ 360° Learning Ecosystem
       </div>
 
-      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
+      <div className="relative w-full max-w-[230px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
@@ -180,22 +180,22 @@ const KalikaMockup = () => {
           style={{ transformStyle: "preserve-3d" }}
           className="w-full rounded-2xl border border-blue-500/20 bg-white shadow-[0_20px_40px_rgba(225,29,72,0.15)] group-hover/mockup:shadow-[0_25px_50px_rgba(225,29,72,0.22)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+          <div className="flex items-center gap-1 px-2 py-1 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-1.5 py-0.5 rounded bg-white text-[6px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-0.5 font-semibold">
                 <span className="text-emerald-600">🔒</span> kalikasphere.com
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[5px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-0.5 h-0.5 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/kalika-home.png" 
               alt="Kalika Sphere Homepage" 
@@ -210,18 +210,18 @@ const KalikaMockup = () => {
 
 const PrinkMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#E0E7FF] to-[#C7D2FE] border border-[#0C1E43]/20 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#0C1E43,#4F46E5,#0C1E43)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
+    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#E0E7FF] to-[#C7D2FE] border border-[#0C1E43]/20 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#0C1E43,#4F46E5,#0C1E43)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,30,67,0.15)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#0C1E43]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#4F46E5]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-1 right-1 w-14 h-14 bg-[#0C1E43]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1 left-1 w-16 h-16 bg-[#4F46E5]/20 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#0C1E43]/30 text-[9px] font-bold text-[#0C1E43] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+      <div className="absolute top-2 left-2 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#0C1E43]/30 text-[8px] font-bold text-[#0C1E43] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
         <span className="w-1.5 h-1.5 rounded-full bg-[#4F46E5] animate-ping" />
         🎁 Automated Print Commerce
       </div>
 
-      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
+      <div className="relative w-full max-w-[230px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
@@ -229,22 +229,22 @@ const PrinkMockup = () => {
           style={{ transformStyle: "preserve-3d" }}
           className="w-full rounded-2xl border border-[#0C1E43]/20 bg-white shadow-[0_20px_40px_rgba(12,30,67,0.15)] group-hover/mockup:shadow-[0_25px_50px_rgba(12,30,67,0.22)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+          <div className="flex items-center gap-1 px-2 py-1 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-1.5 py-0.5 rounded bg-white text-[6px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-0.5 font-semibold">
                 <span className="text-emerald-600">🔒</span> theprink.in
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[5px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-0.5 h-0.5 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/prink-home.png" 
               alt="The Prink Homepage" 
@@ -259,18 +259,18 @@ const PrinkMockup = () => {
 
 const PaidhuMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#fdf4fb] via-[#f8e7f5] to-[#f3d5ee] border border-[#662654]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#662654,#EDE707,#662654)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
+    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#fdf4fb] via-[#f8e7f5] to-[#f3d5ee] border border-[#662654]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#662654,#EDE707,#662654)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(102,38,84,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#662654]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#EDE707]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-1 right-1 w-14 h-14 bg-[#662654]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1 left-1 w-16 h-16 bg-[#EDE707]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#662654]/40 text-[9px] font-bold text-[#662654] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+      <div className="absolute top-2 left-2 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#662654]/40 text-[8px] font-bold text-[#662654] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
         <span className="w-1.5 h-1.5 rounded-full bg-[#662654] animate-ping" />
         🌸 100% Pure Floral Foods
       </div>
 
-      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
+      <div className="relative w-full max-w-[230px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
@@ -278,22 +278,22 @@ const PaidhuMockup = () => {
           style={{ transformStyle: "preserve-3d" }}
           className="w-full rounded-2xl border border-[#662654]/30 bg-white shadow-[0_20px_40px_rgba(102,38,84,0.28)] group-hover/mockup:shadow-[0_25px_50px_rgba(102,38,84,0.38)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+          <div className="flex items-center gap-1 px-2 py-1 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-1.5 py-0.5 rounded bg-white text-[6px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-0.5 font-semibold">
                 <span className="text-emerald-600">🔒</span> paidhuethicalfoods.com
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[5px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-0.5 h-0.5 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/paidhu-home.png" 
               alt="Paidhu Homepage" 
@@ -308,18 +308,18 @@ const PaidhuMockup = () => {
 
 const FloffiMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA] border border-[#FF8C00]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#FF8C00,#F2EFCF,#FF8C00)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
+    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA] border border-[#FF8C00]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#FF8C00,#F2EFCF,#FF8C00)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,140,0,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#FF8C00]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#FF8C00]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-1 right-1 w-14 h-14 bg-[#FF8C00]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1 left-1 w-16 h-16 bg-[#FF8C00]/25 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#FF8C00]/40 text-[9px] font-bold text-[#FF8C00] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+      <div className="absolute top-2 left-2 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#FF8C00]/40 text-[8px] font-bold text-[#FF8C00] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
         <span className="w-1.5 h-1.5 rounded-full bg-[#FF8C00] animate-ping" />
         🍯 Gourmet Nectar &amp; Spreads
       </div>
 
-      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
+      <div className="relative w-full max-w-[230px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
@@ -327,22 +327,22 @@ const FloffiMockup = () => {
           style={{ transformStyle: "preserve-3d" }}
           className="w-full rounded-2xl border border-[#FF8C00]/30 bg-white shadow-[0_20px_40px_rgba(255,140,0,0.28)] group-hover/mockup:shadow-[0_25px_50px_rgba(255,140,0,0.38)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+          <div className="flex items-center gap-1 px-2 py-1 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-1.5 py-0.5 rounded bg-white text-[6px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-0.5 font-semibold">
                 <span className="text-emerald-600">🔒</span> floffi.in
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[5px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-0.5 h-0.5 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/floffi-home.png" 
               alt="Floffi Homepage" 
@@ -357,18 +357,18 @@ const FloffiMockup = () => {
 
 const PaidhuSaffronMockup = () => {
   return (
-    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FEF2F2] via-[#FEF3C7] to-[#FDE68A] border border-[#B91C1C]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
-      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#B91C1C,#F59E0B,#B91C1C)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
+    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FEF2F2] via-[#FEF3C7] to-[#FDE68A] border border-[#B91C1C]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#B91C1C,#F59E0B,#B91C1C)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(185,28,28,0.2)_0%,transparent_70%)] pointer-events-none" />
-      <div className="absolute top-2 right-2 w-20 h-20 bg-[#B91C1C]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
-      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#F59E0B]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute top-1 right-1 w-14 h-14 bg-[#B91C1C]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-1 left-1 w-16 h-16 bg-[#F59E0B]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
       
-      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#B91C1C]/40 text-[9px] font-bold text-[#B91C1C] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+      <div className="absolute top-2 left-2 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#B91C1C]/40 text-[8px] font-bold text-[#B91C1C] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
         <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C] animate-ping" />
         🍂 A++ Grade Kashmiri Saffron
       </div>
 
-      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
+      <div className="relative w-full max-w-[230px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
         <motion.div
           initial={{ rotateX: 5, rotateY: -6 }}
           whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
@@ -376,22 +376,22 @@ const PaidhuSaffronMockup = () => {
           style={{ transformStyle: "preserve-3d" }}
           className="w-full rounded-2xl border border-[#B91C1C]/30 bg-white shadow-[0_20px_40px_rgba(185,28,28,0.28)] group-hover/mockup:shadow-[0_25px_50px_rgba(185,28,28,0.38)] overflow-hidden transition-all duration-300"
         >
-          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+          <div className="flex items-center gap-1 px-2 py-1 border-b border-gray-200 bg-gray-100/95 justify-between">
             <div className="flex items-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
-              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
-              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-1.5 h-1.5 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-1.5 py-0.5 rounded bg-white text-[6px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-0.5 font-semibold">
                 <span className="text-emerald-600">🔒</span> paidhusaffron.com
               </div>
             </div>
-            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
-              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+            <div className="flex items-center gap-1 text-[5px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-0.5 h-0.5 rounded-full bg-emerald-500 animate-ping" />
               LIVE
             </div>
           </div>
 
-          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/paidhu-saffron.png" 
               alt="Paidhu Saffron Homepage" 
