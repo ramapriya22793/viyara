@@ -115,15 +115,15 @@ const projects = [
       cardGradient: 'bg-white shadow-[0_20px_60px_rgba(255,140,0,0.15)]',
       borderColor: 'border-[#FF8C00]/40 hover:border-[#FF8C00]',
       hoverGlow: 'from-[#FF8C00]/10 via-[#F2EFCF]/40 to-transparent',
-      titleColor: 'text-gray-900',
+      titleColor: 'text-[#FF8C00]',
       descriptionColor: 'text-gray-600',
       featureTextColor: 'text-gray-700',
       dividerColor: 'bg-gray-200',
       categoryColor: 'text-[#FF8C00]',
       idHoverColor: 'group-hover:text-[#FF8C00]',
       dotColor: 'bg-[#FF8C00] shadow-[0_0_10px_#FF8C00]',
-      tagBg: 'bg-[#FF8C00]/10 text-[#d97706] border-[#FF8C00]/25 font-semibold',
-      btnStyle: 'bg-[#FF8C00] text-white hover:bg-[#e07b00] shadow-md shadow-orange-500/20',
+      tagBg: 'bg-[#FF8C00]/10 text-[#FF8C00] border-[#FF8C00]/25 font-semibold',
+      btnStyle: 'bg-[#FF8C00] text-[#F2EFCF] hover:bg-[#e07b00] font-bold shadow-md shadow-orange-500/20',
       activeColor: '#FF8C00'
     }
   }
