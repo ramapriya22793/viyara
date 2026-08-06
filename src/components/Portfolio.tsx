@@ -30,7 +30,8 @@ const projects = [
       idHoverColor: 'group-hover:text-[#662654]',
       dotColor: 'bg-[#662654] shadow-[0_0_10px_#662654]',
       tagBg: 'bg-[#662654]/10 text-[#662654] border-[#662654]/25 font-semibold',
-      btnStyle: 'bg-[#662654] text-[#EDE707] hover:bg-[#501d42] font-bold shadow-md shadow-purple-900/20'
+      btnStyle: 'bg-[#662654] text-[#EDE707] hover:bg-[#501d42] font-bold shadow-md shadow-purple-900/20',
+      activeColor: '#662654'
     }
   },
   {
@@ -60,7 +61,8 @@ const projects = [
       idHoverColor: 'group-hover:text-[#E11D48]',
       dotColor: 'bg-[#E11D48] shadow-[0_0_10px_#E11D48]',
       tagBg: 'bg-[#E11D48]/10 text-[#E11D48] border-[#E11D48]/25 font-semibold',
-      btnStyle: 'bg-[#E11D48] text-white hover:bg-[#be123c] shadow-md shadow-rose-500/20'
+      btnStyle: 'bg-[#E11D48] text-white hover:bg-[#be123c] shadow-md shadow-rose-500/20',
+      activeColor: '#E11D48'
     }
   },
   {
@@ -90,7 +92,8 @@ const projects = [
       idHoverColor: 'group-hover:text-[#FF3B5C]',
       dotColor: 'bg-[#FF3B5C] shadow-[0_0_10px_#FF3B5C]',
       tagBg: 'bg-[#FF3B5C]/10 text-[#e61e43] border-[#FF3B5C]/25 font-semibold',
-      btnStyle: 'bg-[#FF3B5C] text-white hover:bg-[#e61e43] shadow-md shadow-rose-500/20'
+      btnStyle: 'bg-[#FF3B5C] text-white hover:bg-[#e61e43] shadow-md shadow-rose-500/20',
+      activeColor: '#FF3B5C'
     }
   },
   {
@@ -120,7 +123,8 @@ const projects = [
       idHoverColor: 'group-hover:text-[#FF8C00]',
       dotColor: 'bg-[#FF8C00] shadow-[0_0_10px_#FF8C00]',
       tagBg: 'bg-[#FF8C00]/10 text-[#d97706] border-[#FF8C00]/25 font-semibold',
-      btnStyle: 'bg-[#FF8C00] text-white hover:bg-[#e07b00] shadow-md shadow-orange-500/20'
+      btnStyle: 'bg-[#FF8C00] text-white hover:bg-[#e07b00] shadow-md shadow-orange-500/20',
+      activeColor: '#FF8C00'
     }
   }
 ];
@@ -408,11 +412,15 @@ export default function Portfolio() {
                 }}
                 className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 border cursor-pointer ${
                   isActive
-                    ? 'bg-slate-900 text-white border-slate-900 shadow-lg scale-105'
+                    ? 'text-white shadow-lg scale-105'
                     : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-200 hover:text-slate-900'
                 }`}
+                style={isActive ? { backgroundColor: proj.theme.activeColor, borderColor: proj.theme.activeColor } : {}}
               >
-                <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#38bdf8] animate-ping' : 'bg-slate-400'}`} />
+                <span 
+                  className={`w-2 h-2 rounded-full ${isActive ? 'animate-ping' : ''}`}
+                  style={{ backgroundColor: isActive ? '#ffffff' : '#94a3b8' }}
+                />
                 <span>{proj.id} {proj.title}</span>
               </button>
             );
@@ -565,8 +573,9 @@ export default function Portfolio() {
             }}
             aria-label={`Go to slide ${idx + 1}`}
             className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-              idx === currentIndex ? 'w-10 bg-slate-900' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
+              idx === currentIndex ? 'w-10' : 'w-2.5 bg-slate-300 hover:bg-slate-400'
             }`}
+            style={idx === currentIndex ? { backgroundColor: currentProject.theme.activeColor } : {}}
           />
         ))}
       </div>
