@@ -126,6 +126,37 @@ const projects = [
       btnStyle: 'bg-[#FF8C00] text-[#F2EFCF] hover:bg-[#e07b00] font-bold shadow-md shadow-orange-500/20',
       activeColor: '#FF8C00'
     }
+  },
+  {
+    id: '05',
+    title: 'PAIDHU SAFFRON',
+    category: '100% Pure Kashmiri Mongra Saffron',
+    website: 'https://paidhusaffron.com/',
+    description: 'Paidhu Saffron brings the world’s finest A++ grade Kashmiri Mongra Saffron, handpicked directly from the fields of Pampore, Kashmir. Rich in crocin and natural therapeutic benefits.',
+    tags: ['React.js', 'Tailwind CSS', 'Shopify Plus', 'Brand Strategy', 'Premium Sourcing'],
+    features: [
+      'A++ Grade Kashmiri Mongra Saffron',
+      'Rich in Crocin, Safranal & Picrocrocin',
+      'Handpicked directly from Pampore Fields',
+      '100% Lab Tested & Certified Pure',
+      'Luxury Moisture-Lock Packaging'
+    ],
+    visualType: 'paidhusaffron',
+    theme: {
+      cardGradient: 'bg-white shadow-[0_20px_60px_rgba(185,28,28,0.15)]',
+      borderColor: 'border-[#B91C1C]/30 hover:border-[#B91C1C]',
+      hoverGlow: 'from-[#B91C1C]/10 via-[#F59E0B]/20 to-transparent',
+      titleColor: 'text-[#B91C1C]',
+      descriptionColor: 'text-gray-600',
+      featureTextColor: 'text-gray-700',
+      dividerColor: 'bg-gray-200',
+      categoryColor: 'text-[#B91C1C]',
+      idHoverColor: 'group-hover:text-[#B91C1C]',
+      dotColor: 'bg-[#B91C1C] shadow-[0_0_10px_#B91C1C]',
+      tagBg: 'bg-[#B91C1C]/10 text-[#B91C1C] border-[#B91C1C]/25 font-semibold',
+      btnStyle: 'bg-[#B91C1C] text-[#EDE707] hover:bg-[#991b1b] font-bold shadow-md shadow-red-900/20',
+      activeColor: '#B91C1C'
+    }
   }
 ];
 
@@ -316,6 +347,55 @@ const FloffiMockup = () => {
             <img 
               src="/projects/floffi-home.png" 
               alt="Floffi Homepage" 
+              className="w-full h-full object-cover object-top group-hover/mockup:scale-105 transition-transform duration-700"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </div>
+  );
+};
+
+const PaidhuSaffronMockup = () => {
+  return (
+    <div className="relative w-full h-[220px] sm:h-[260px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FEF2F2] via-[#FEF3C7] to-[#FDE68A] border border-[#B91C1C]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+      <div className="absolute w-[180px] h-[180px] rounded-full bg-[conic-gradient(from_0deg,#B91C1C,#F59E0B,#B91C1C)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(185,28,28,0.2)_0%,transparent_70%)] pointer-events-none" />
+      <div className="absolute top-2 right-2 w-20 h-20 bg-[#B91C1C]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      <div className="absolute bottom-2 left-2 w-24 h-24 bg-[#F59E0B]/40 rounded-full blur-3xl pointer-events-none animate-pulse" />
+      
+      <div className="absolute top-3 left-3 z-20 px-2 py-1 rounded-full bg-white/90 backdrop-blur-md border border-[#B91C1C]/40 text-[9px] font-bold text-[#B91C1C] shadow-lg flex items-center gap-1 group-hover/mockup:scale-105 transition-transform duration-300 animate-bounce">
+        <span className="w-1.5 h-1.5 rounded-full bg-[#B91C1C] animate-ping" />
+        🍂 A++ Grade Kashmiri Saffron
+      </div>
+
+      <div className="relative w-full max-w-[280px] [perspective:1200px] z-10 transition-transform duration-500 hover:-translate-y-1">
+        <motion.div
+          initial={{ rotateX: 5, rotateY: -6 }}
+          whileHover={{ rotateX: 0, rotateY: 0, scale: 1.05 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          style={{ transformStyle: "preserve-3d" }}
+          className="w-full rounded-2xl border border-[#B91C1C]/30 bg-white shadow-[0_20px_40px_rgba(185,28,28,0.28)] group-hover/mockup:shadow-[0_25px_50px_rgba(185,28,28,0.38)] overflow-hidden transition-all duration-300"
+        >
+          <div className="flex items-center gap-1 px-2.5 py-1.5 border-b border-gray-200 bg-gray-100/95 justify-between">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 rounded-full bg-[#ef4444] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#f59e0b] shadow-xs" />
+              <div className="w-2 h-2 rounded-full bg-[#10b981] shadow-xs" />
+              <div className="ml-1 px-2 py-0.5 rounded-md bg-white text-[7px] text-gray-700 font-mono border border-gray-200 shadow-2xs flex items-center gap-1 font-semibold">
+                <span className="text-emerald-600">🔒</span> paidhusaffron.com
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-[6px] font-extrabold text-emerald-700 bg-emerald-100/80 px-1.5 py-0.5 rounded-full border border-emerald-300">
+              <span className="w-1 h-1 rounded-full bg-emerald-500 animate-ping" />
+              LIVE
+            </div>
+          </div>
+
+          <div className="w-full h-[105px] sm:h-[120px] overflow-hidden bg-gray-50 relative">
+            <img 
+              src="/projects/paidhu-home.png" 
+              alt="Paidhu Saffron Homepage" 
               className="w-full h-full object-cover object-top group-hover/mockup:scale-105 transition-transform duration-700"
             />
           </div>
@@ -554,6 +634,7 @@ export default function Portfolio() {
                 {currentProject.visualType === 'kalikasphere' ? <KalikaMockup /> : 
                  currentProject.visualType === 'prink' ? <PrinkMockup /> : 
                  currentProject.visualType === 'paidhu' ? <PaidhuMockup /> : 
+                 currentProject.visualType === 'paidhusaffron' ? <PaidhuSaffronMockup /> :
                  <FloffiMockup />}
               </a>
 
