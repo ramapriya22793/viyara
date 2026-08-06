@@ -8,27 +8,27 @@ export default function About() {
     {
       name: 'Ragapriya Karunakaran',
       role: 'CEO & Founder',
-      badge: 'Chief Executive Officer',
+      badge: 'CEO & Founder',
       icon: Sparkles,
       image: founderImg,
       zoomClass: 'group-hover:scale-105',
-      description: 'Drives VIYARA’s overall strategic vision, brand curation, executive partnerships, and digital growth initiatives.',
-      gradient: 'from-[#3b82f6]/20 to-[#8b5cf6]/20',
-      borderColor: 'border-[#60a5fa]/30',
-      tagColor: 'bg-[#60a5fa]/10 text-[#60a5fa] border-[#60a5fa]/30'
+      description: "Defines VIYARA's strategic vision, business growth, and innovation by leading digital transformation, executive partnerships, and customer-focused solutions that drive sustainable business success.",
+      gradient: 'from-[#161616] to-[#0d0d0d]',
+      borderColor: 'border-white/10 group-hover:border-white/20',
+      tagColor: 'bg-white/5 text-white/90 border-white/10'
     },
     {
       name: 'Ramapriya Karthikeyan',
-      role: 'CTO',
+      role: 'Chief Technology Officer',
       badge: 'Chief Technology Officer',
       icon: Code,
       image: ctoImg,
       initials: 'RK',
       zoomClass: 'scale-[2.5] origin-[50%_20%] group-hover:scale-[2.65]',
-      description: 'Spearheads technology architecture, full-stack software development, cloud infrastructure, and technical innovation.',
-      gradient: 'from-[#06b6d4]/20 to-[#3b82f6]/20',
-      borderColor: 'border-[#22d3ee]/30',
-      tagColor: 'bg-[#22d3ee]/10 text-[#22d3ee] border-[#22d3ee]/30'
+      description: "Leads VIYARA's technology strategy through software engineering, cloud architecture, AI-driven innovation, and scalable product development, delivering secure, high-performance digital solutions.",
+      gradient: 'from-[#161616] to-[#0d0d0d]',
+      borderColor: 'border-white/10 group-hover:border-white/20',
+      tagColor: 'bg-white/5 text-white/90 border-white/10'
     }
   ];
 
@@ -86,7 +86,7 @@ export default function About() {
               const IconComp = member.icon;
               return (
                 <motion.div
-                  key={idx}
+                   key={idx}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-40px' }}
@@ -99,7 +99,7 @@ export default function About() {
                   <div className="flex items-center gap-4 relative z-10">
                     {/* Member Avatar with Glow Aura */}
                     {member.image ? (
-                      <div className="relative w-16 h-16 rounded-2xl p-0.5 bg-white/10 border border-white/20 shadow-lg overflow-hidden shrink-0 group-hover:border-white/50 group-hover:shadow-[0_0_20px_rgba(96,165,250,0.4)] transition-all duration-300">
+                      <div className="relative w-16 h-16 rounded-2xl p-0.5 bg-white/10 border border-white/20 shadow-lg overflow-hidden shrink-0 group-hover:border-white/50 group-hover:shadow-[0_0_20px_rgba(255,255,255,0.25)] transition-all duration-300">
                         <img 
                           src={member.image} 
                           alt={`${member.name} - ${member.role}`} 
@@ -113,24 +113,24 @@ export default function About() {
                     )}
 
                     <div>
-                      <h4 className="font-serif text-xl font-bold text-white group-hover:text-[#60a5fa] transition-colors">
+                      <h4 className="font-serif text-xl font-bold text-white group-hover:text-slate-300 transition-colors">
                         {member.name}
                       </h4>
                       <div className="flex items-center gap-2 mt-1">
                         <span className={`text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${member.tagColor} flex items-center gap-1.5`}>
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#60a5fa] animate-ping" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                           {member.role}
                         </span>
                       </div>
                     </div>
                   </div>
 
-                  <p className="font-inter text-white/70 text-xs leading-relaxed font-normal relative z-10">
+                  <p className="font-inter text-white text-xs leading-relaxed font-normal relative z-10">
                     {member.description}
                   </p>
 
-                  <div className="pt-2 flex items-center gap-2 text-[11px] text-white/40 font-inter relative z-10">
-                    <IconComp size={13} className="text-[#60a5fa]" />
+                  <div className="pt-2 flex items-center gap-2 text-[11px] text-white/75 font-inter relative z-10">
+                    <IconComp size={13} className="text-white/80" />
                     <span>{member.badge}</span>
                   </div>
                 </motion.div>
