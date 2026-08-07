@@ -97,31 +97,17 @@ export default function ServiceForm() {
         }
       }
 
-      // Save inquiry to supabase table
-      const inquiryPayload = {
-        name: formData.name.trim(),
-        email: formData.email.trim(),
-        subject: formData.service,
-        message: formData.message.trim(),
-        attachment_url: fileUrl || (selectedFile ? selectedFile.name : '')
-      };
+      // Save inquiry to supabase contacts table
+      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.service}] | [Message: ${formData.message.trim()}]` + (fileUrl || selectedFile ? ` | [File: ${fileUrl || selectedFile?.name}]` : ' | [File: None]');
 
-      const { error: inquiryError } = await supabase
-        .from('inquiries')
-        .insert([inquiryPayload]);
+      const { error } = await supabase
+        .from('contacts')
+        .insert([{
+          name: formData.name.trim(),
+          phone: formattedPhone
+        }]);
 
-      if (inquiryError) {
-        // Fallback: save as a contact record
-        const { error: contactError } = await supabase
-          .from('contacts')
-          .insert([{
-            name: formData.name.trim(),
-            phone: formData.email.trim(),
-            message: `[SERVICE INQUIRY] Service: ${formData.service} | Message: ${formData.message.trim()} | File: ${fileUrl || (selectedFile ? selectedFile.name : 'None')}`
-          }]);
-        
-        if (contactError) throw contactError;
-      }
+      if (error) throw error;
 
       setIsSubmitted(true);
     } catch (err: any) {
