@@ -15,6 +15,7 @@ import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
 import Careers from './components/Careers';
 import SimpleForm from './components/SimpleForm';
+import ServiceForm from './components/ServiceForm';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,8 +29,8 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       setCurrentHash(window.location.hash);
-      // Scroll to top when switching to careers
-      if (window.location.hash === '#careers') {
+      // Scroll to top when switching to careers or service-form
+      if (window.location.hash === '#careers' || window.location.hash === '#service-form') {
         window.scrollTo({ top: 0, behavior: 'instant' });
       }
     };
@@ -62,6 +63,7 @@ function App() {
 
   // Determine if we should render standalone Name/Phone Form based on subdomain or hash path
   const isFormSubdomain = window.location.hostname.startsWith('form.') || currentHash === '#form-only';
+  const isServiceSubdomain = window.location.hostname.startsWith('service.') || currentHash === '#service-form';
 
   return (
     <div className="bg-[#ffffff] min-h-screen text-[#0f172a] antialiased selection:bg-[#162436]/15 selection:text-[#162436]">
@@ -75,6 +77,8 @@ function App() {
         <AnimatePresence>
           {isFormSubdomain ? (
             <SimpleForm />
+          ) : isServiceSubdomain ? (
+            <ServiceForm />
           ) : (
             <>
               {/* Scroll Progress Bar */}

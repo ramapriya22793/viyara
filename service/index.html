@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viyara | Inquiry Console</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #162436;
+      --accent: #2563eb;
+      --bg: #0b0f19;
+      --card-bg: rgba(22, 36, 54, 0.45);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 40px 20px;
+    }
+
+    /* Ambient glowing background meshes */
+    .glow-1 {
+      position: absolute;
+      top: -10%;
+      left: -10%;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(232, 207, 167, 0.08) 0%, transparent 60%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .glow-2 {
+      position: absolute;
+      bottom: -10%;
+      right: -10%;
+      width: 50%;
+      height: 50%;
+      border-radius: 50%;
+      background: radial-gradient(circle at center, rgba(63, 106, 158, 0.15) 0%, transparent 60%);
+      filter: blur(100px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Tech grid overlay */
+    .grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 30px 30px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 44px 36px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35), inset 0 0 12px rgba(255, 255, 255, 0.03);
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+    }
+
+    .header {
+      margin-bottom: 32px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 576px) {
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 24px;
+    }
+
+    .form-label {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .input-field {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      color: var(--text);
+      font-size: 13px;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    .input-field:focus {
+      border-color: var(--accent);
+      background: rgba(255, 255, 255, 0.05);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+    }
+
+    .select-wrapper {
+      position: relative;
+    }
+
+    .select-wrapper select {
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+    }
+
+    .select-wrapper .chevron {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+      pointer-events: none;
+      width: 14px;
+      height: 14px;
+    }
+
+    .textarea-field {
+      resize: none;
+      min-height: 120px;
+    }
+
+    /* Custom File Attachment Field */
+    .file-upload-wrapper {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .file-upload-input {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+      z-index: 10;
+    }
+
+    .file-upload-trigger {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px 16px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1.5px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .file-upload-trigger:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(37, 99, 235, 0.4);
+    }
+
+    .file-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: rgba(241, 245, 249, 0.5);
+      max-w: 75%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .file-info svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .btn-browse {
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .file-upload-wrapper:hover .btn-browse {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .error-msg {
+      font-family: 'Inter', sans-serif;
+      font-size: 10px;
+      color: #f87171;
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      opacity: 0;
+      transform: translateY(-5px);
+      transition: all 0.3s ease;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .error-msg.visible {
+      opacity: 1;
+      transform: translateY(0);
+      height: auto;
+      margin-top: 6px;
+    }
+
+    .btn-submit {
+      padding: 14px 28px;
+      background: var(--accent);
+      border: none;
+      border-radius: 30px;
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 15px rgba(37, 99, 235, 0.15);
+    }
+
+    .btn-submit:hover {
+      background: #1d4ed8;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-submit:active {
+      transform: translateY(0);
+    }
+
+    .btn-submit svg {
+      stroke-width: 2.5px;
+    }
+
+    .btn-submit:disabled {
+      background: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.4);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* Success screen styles */
+    .success-screen {
+      display: none;
+      text-align: center;
+      padding: 16px 0;
+    }
+
+    .success-icon-wrap {
+      width: 72px;
+      height: 72px;
+      background: rgba(34, 197, 94, 0.08);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(34, 197, 94, 0.2);
+      animation: scaleUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    .success-icon {
+      color: #22c55e;
+    }
+
+    .success-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .success-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-top-color: #ffffff;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes scaleUp {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .fade-out {
+      animation: fadeOut 0.4s ease forwards;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-10px); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ambient Glows -->
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+  <div class="grid-overlay"></div>
+
+  <div class="container">
+    <div class="card">
+      
+      <!-- Inquiry Form -->
+      <div id="form-container">
+        <div class="header">
+          <h1 class="title">Inquiry Console</h1>
+          <p class="subtitle">Submit your engineering brief to consult with our digital team</p>
+        </div>
+
+        <form id="inquiry-form" autocomplete="off" novalidate>
+          
+          <div class="form-row">
+            <!-- Full Name -->
+            <div class="form-group">
+              <label for="name" class="form-label">Full Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="input-field" 
+                placeholder="e.g. Johnathan Smith" 
+                required
+              >
+              <div id="name-error" class="error-msg">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span>Please enter your full name</span>
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                class="input-field" 
+                placeholder="e.g. j.smith@enterprise.com" 
+                required
+              >
+              <div id="email-error" class="error-msg">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <span>Please enter a valid email address</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Subject / Service Required -->
+          <div class="form-group">
+            <label for="service" class="form-label">Subject / Service Required</label>
+            <div class="select-wrapper">
+              <select id="service" name="service" class="input-field" required>
+                <option value="" disabled selected>Select a Service...</option>
+                <option value="Web & SaaS Engineering">Web & SaaS Engineering</option>
+                <option value="Mobile Application Development">Mobile Application Development</option>
+                <option value="Cloud Systems & DevOps">Cloud Systems & DevOps</option>
+                <option value="AI-driven Enterprise Systems">AI-driven Enterprise Systems</option>
+                <option value="UI/UX Product Design">UI/UX Product Design</option>
+                <option value="Performance & Growth Marketing">Performance & Growth Marketing</option>
+                <option value="Digital Brand Strategy">Digital Brand Strategy</option>
+              </select>
+              <svg class="chevron" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            <div id="service-error" class="error-msg">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Please select a service</span>
+            </div>
+          </div>
+
+          <!-- Consultation Message -->
+          <div class="form-group">
+            <label for="message" class="form-label">Consultation Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              class="input-field textarea-field" 
+              placeholder="Detail your engineering challenges or brand direction specs..." 
+              required
+            ></textarea>
+            <div id="message-error" class="error-msg">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+              <span>Please enter your consultation message</span>
+            </div>
+          </div>
+
+          <!-- Attachment -->
+          <div class="form-group">
+            <label class="form-label">Project Brief / Attachment (PDF, Image)</label>
+            <div class="file-upload-wrapper">
+              <input type="file" id="attachment" name="attachment" class="file-upload-input" accept=".pdf,image/*">
+              <div class="file-upload-trigger">
+                <div class="file-info" id="file-info-container">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                  <span id="file-placeholder">Attach brief or mockup file...</span>
+                </div>
+                <div class="btn-browse">Browse</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Submit Button -->
+          <button type="submit" id="submit-btn" class="btn-submit">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span id="btn-text">Transmit Inquiry</span>
+            <div id="btn-spinner" class="spinner"></div>
+          </button>
+
+        </form>
+      </div>
+
+      <!-- Success Screen -->
+      <div id="success-screen" class="success-screen">
+        <div class="success-icon-wrap">
+          <svg class="success-icon" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h2 class="success-title">Inquiry Transmitted</h2>
+        <p class="success-text">Thank you for submitting your brief. Our engineering and design team will review it and get back to you shortly.</p>
+        <button type="button" id="back-btn" class="btn-submit" style="background: rgba(255, 255, 255, 0.05); color: var(--text); border: 1px solid var(--border); box-shadow: none;">
+          Return to Console
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('inquiry-form');
+    const formContainer = document.getElementById('form-container');
+    const successScreen = document.getElementById('success-screen');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnSpinner = document.getElementById('btn-spinner');
+    const backBtn = document.getElementById('back-btn');
+
+    // Inputs
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const serviceInput = document.getElementById('service');
+    const messageInput = document.getElementById('message');
+    const fileInput = document.getElementById('attachment');
+    const filePlaceholder = document.getElementById('file-placeholder');
+
+    // Error elements
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const serviceError = document.getElementById('service-error');
+    const messageError = document.getElementById('message-error');
+
+    // File Input Listener
+    fileInput.addEventListener('change', (e) => {
+      if (fileInput.files && fileInput.files[0]) {
+        filePlaceholder.innerText = fileInput.files[0].name;
+        filePlaceholder.style.color = '#f1f5f9';
+      } else {
+        filePlaceholder.innerText = 'Attach brief or mockup file...';
+        filePlaceholder.style.color = '';
+      }
+    });
+
+    // Validation functions
+    function validateName() {
+      if (!nameInput.value.trim()) {
+        nameError.classList.add('visible');
+        nameInput.style.borderColor = '#f87171';
+        return false;
+      } else {
+        nameError.classList.remove('visible');
+        nameInput.style.borderColor = '';
+        return true;
+      }
+    }
+
+    function validateEmail() {
+      const emailVal = emailInput.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailVal) {
+        emailError.querySelector('span').innerText = 'Please enter your email address';
+        emailError.classList.add('visible');
+        emailInput.style.borderColor = '#f87171';
+        return false;
+      } else if (!emailRegex.test(emailVal)) {
+        emailError.querySelector('span').innerText = 'Please enter a valid email address';
+        emailError.classList.add('visible');
+        emailInput.style.borderColor = '#f87171';
+        return false;
+      } else {
+        emailError.classList.remove('visible');
+        emailInput.style.borderColor = '';
+        return true;
+      }
+    }
+
+    function validateService() {
+      if (!serviceInput.value) {
+        serviceError.classList.add('visible');
+        serviceInput.style.borderColor = '#f87171';
+        return false;
+      } else {
+        serviceError.classList.remove('visible');
+        serviceInput.style.borderColor = '';
+        return true;
+      }
+    }
+
+    function validateMessage() {
+      if (!messageInput.value.trim()) {
+        messageError.classList.add('visible');
+        messageInput.style.borderColor = '#f87171';
+        return false;
+      } else {
+        messageError.classList.remove('visible');
+        messageInput.style.borderColor = '';
+        return true;
+      }
+    }
+
+    // Dynamic error clearing
+    nameInput.addEventListener('input', () => {
+      if (nameError.classList.contains('visible')) validateName();
+    });
+
+    emailInput.addEventListener('input', () => {
+      if (emailError.classList.contains('visible')) validateEmail();
+    });
+
+    serviceInput.addEventListener('change', () => {
+      if (serviceError.classList.contains('visible')) validateService();
+    });
+
+    messageInput.addEventListener('input', () => {
+      if (messageError.classList.contains('visible')) validateMessage();
+    });
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const isNameValid = validateName();
+      const isEmailValid = validateEmail();
+      const isServiceValid = validateService();
+      const isMessageValid = validateMessage();
+
+      if (!isNameValid || !isEmailValid || !isServiceValid || !isMessageValid) return;
+
+      // Submit loading state
+      submitBtn.disabled = true;
+      btnText.innerText = 'Transmitting...';
+      btnSpinner.style.display = 'block';
+
+      // Simulate API submit call
+      setTimeout(() => {
+        // Switch views
+        formContainer.classList.add('fade-out');
+        
+        setTimeout(() => {
+          formContainer.style.display = 'none';
+          successScreen.style.display = 'block';
+          successScreen.classList.add('fade-in');
+          
+          // Reset button states
+          submitBtn.disabled = false;
+          btnText.innerText = 'Transmit Inquiry';
+          btnSpinner.style.display = 'none';
+        }, 400);
+
+      }, 1500);
+    });
+
+    backBtn.addEventListener('click', () => {
+      successScreen.classList.remove('fade-in');
+      successScreen.classList.add('fade-out');
+
+      setTimeout(() => {
+        successScreen.style.display = 'none';
+        successScreen.classList.remove('fade-out');
+        form.reset();
+        filePlaceholder.innerText = 'Attach brief or mockup file...';
+        filePlaceholder.style.color = '';
+        
+        formContainer.style.display = 'block';
+        formContainer.classList.remove('fade-out');
+        formContainer.classList.add('fade-in');
+      }, 400);
+    });
+  </script>
+</body>
+</html>

@@ -71,7 +71,7 @@ export default function Navbar() {
           <div className="hidden md:block">
             <Magnetic range={0.25}>
               <a
-                href="#contact"
+                href="#service-form"
                 className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase border transition-all duration-300 ${
                   isScrolled 
                     ? 'border-[#0f172a]/30 bg-[#0f172a]/5 text-[#0f172a] hover:bg-[#0f172a] hover:border-[#0f172a] hover:text-white shadow-[0_8px_20px_rgba(15,23,42,0.08)]' 
@@ -117,7 +117,7 @@ export default function Navbar() {
                 </a>
               ))}
               <a
-                href="#contact"
+                href="#service-form"
                 onClick={() => setMobileMenuOpen(false)}
                 className="mt-4 flex items-center justify-center gap-2 px-6 py-3.5 rounded-full border border-[var(--color-accent-blue)]/40 bg-[var(--color-accent-blue)]/20 text-[#f1f5f9] text-xs font-bold tracking-wider uppercase shadow-lg text-center"
               >
