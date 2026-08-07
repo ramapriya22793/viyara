@@ -3,14 +3,6 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import Magnetic from './Magnetic';
 
-const marqueeTechs = [
-  { name: 'Enterprise Software' },
-  { name: 'SaaS Architecture' },
-  { name: 'Visual Marketing' },
-  { name: 'Cloud Engineering' },
-  { name: 'Quality Security' },
-];
-
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -171,33 +163,6 @@ export default function Hero() {
 
         </div>
       </div>
-
-      {/* Marquee Footer Banner */}
-      <div className="w-full bg-[#0d070c]/90 py-7 border-t border-[var(--color-luxury-plum)]/20 relative z-20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 mb-4">
-          <p className="text-[11px] tracking-[0.3em] uppercase font-extrabold text-[#e2e8f0] text-center">
-            Pioneering digital infrastructures in key sectors
-          </p>
-        </div>
-
-        {/* Infinite marquee */}
-        <div className="marquee-container">
-          <div className="marquee-content">
-            {[...marqueeTechs, ...marqueeTechs, ...marqueeTechs].map((tech, i) => (
-              <div 
-                key={i} 
-                className="flex items-center gap-3 px-6 py-2.5 rounded-2xl bg-white/12 border border-white/20 hover:border-white/50 hover:bg-white/20 hover:scale-105 transition-all duration-300 shadow-md"
-              >
-                <div className="w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
-                <span className="text-[12px] md:text-[13px] font-bold uppercase tracking-wider text-white whitespace-nowrap">
-                  {tech.name}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
     </section>
   );
 }
