@@ -18,23 +18,31 @@ export default function FinalCTA() {
     try {
       let fileUrl = '';
       if (file) {
-        const fileExt = file.name.split('.').pop();
-        const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `briefs/${fileName}`;
+        try {
+          const fileExt = file.name.split('.').pop();
+          const fileName = `${Math.random()}.${fileExt}`;
+          const filePath = `briefs/${fileName}`;
 
-        // Attempt upload to 'briefs' storage bucket
-        const { error: uploadError } = await supabase.storage
-          .from('briefs')
-          .upload(filePath, file);
+          // Attempt upload to 'briefs' storage bucket
+          const { error: uploadError } = await supabase.storage
+            .from('briefs')
+            .upload(filePath, file);
 
-        if (!uploadError) {
-          const { data } = supabase.storage.from('briefs').getPublicUrl(filePath);
-          fileUrl = data.publicUrl;
+          if (!uploadError) {
+            const { data } = supabase.storage.from('briefs').getPublicUrl(filePath);
+            fileUrl = data.publicUrl;
+          } else {
+            console.warn('Storage upload failed:', uploadError.message);
+            fileUrl = `${file.name} (Upload Failed: ${uploadError.message})`;
+          }
+        } catch (uploadErr: any) {
+          console.warn('Storage upload exception:', uploadErr.message);
+          fileUrl = `${file.name} (Upload Failed)`;
         }
       }
 
       // Save inquiry to supabase contacts table
-      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.subject}] | [Message: ${formData.message.trim()}]` + (fileUrl || file ? ` | [File: ${fileUrl || file?.name}]` : ' | [File: None]');
+      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.subject}] | [Message: ${formData.message.trim()}]` + (fileUrl ? ` | [File: ${fileUrl}]` : (file ? ` | [File: ${file.name} (Not Uploaded)]` : ' | [File: None]'));
 
       const { error } = await supabase
         .from('contacts')
@@ -52,13 +60,8 @@ export default function FinalCTA() {
         setFile(null);
       }, 4000);
     } catch (err: any) {
-      console.warn('FinalCTA submit failed, showing success fallback:', err.message);
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setFile(null);
-      }, 4000);
+      console.error('Database insertion failed:', err.message);
+      alert('Failed to transmit inquiry. Please check your network connection.');
     } finally {
       setIsSubmitting(false);
     }

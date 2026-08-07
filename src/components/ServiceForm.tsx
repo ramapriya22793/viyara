@@ -82,23 +82,31 @@ export default function ServiceForm() {
     try {
       let fileUrl = '';
       if (selectedFile) {
-        const fileExt = selectedFile.name.split('.').pop();
-        const fileName = `${Math.random()}.${fileExt}`;
-        const filePath = `briefs/${fileName}`;
+        try {
+          const fileExt = selectedFile.name.split('.').pop();
+          const fileName = `${Math.random()}.${fileExt}`;
+          const filePath = `briefs/${fileName}`;
 
-        // Attempt upload to 'briefs' storage bucket
-        const { error: uploadError } = await supabase.storage
-          .from('briefs')
-          .upload(filePath, selectedFile);
+          // Attempt upload to 'briefs' storage bucket
+          const { error: uploadError } = await supabase.storage
+            .from('briefs')
+            .upload(filePath, selectedFile);
 
-        if (!uploadError) {
-          const { data } = supabase.storage.from('briefs').getPublicUrl(filePath);
-          fileUrl = data.publicUrl;
+          if (!uploadError) {
+            const { data } = supabase.storage.from('briefs').getPublicUrl(filePath);
+            fileUrl = data.publicUrl;
+          } else {
+            console.warn('Storage upload failed:', uploadError.message);
+            fileUrl = `${selectedFile.name} (Upload Failed: ${uploadError.message})`;
+          }
+        } catch (uploadErr: any) {
+          console.warn('Storage upload exception:', uploadErr.message);
+          fileUrl = `${selectedFile.name} (Upload Failed)`;
         }
       }
 
       // Save inquiry to supabase contacts table
-      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.service}] | [Message: ${formData.message.trim()}]` + (fileUrl || selectedFile ? ` | [File: ${fileUrl || selectedFile?.name}]` : ' | [File: None]');
+      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.service}] | [Message: ${formData.message.trim()}]` + (fileUrl ? ` | [File: ${fileUrl}]` : (selectedFile ? ` | [File: ${selectedFile.name} (Not Uploaded)]` : ' | [File: None]'));
 
       const { error } = await supabase
         .from('contacts')
@@ -111,9 +119,11 @@ export default function ServiceForm() {
 
       setIsSubmitted(true);
     } catch (err: any) {
-      console.warn('Supabase insert failed, continuing to success screen:', err.message);
-      // Graceful fallback to success screen to ensure client flow is not broken
-      setIsSubmitted(true);
+      console.error('Database insertion failed:', err.message);
+      setErrors(prev => ({
+        ...prev,
+        submit: 'Failed to transmit inquiry. Please check your network connection.'
+      }));
     } finally {
       setIsSubmitting(false);
     }
