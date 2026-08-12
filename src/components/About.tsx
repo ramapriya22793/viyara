@@ -63,9 +63,21 @@ export default function About() {
           </div>
 
           {/* Main VIYARA Overview Text */}
-          <div className="text-white text-base md:text-lg leading-relaxed max-w-3xl mx-auto relative z-10 text-center">
+          <div className="text-white text-base md:text-lg leading-relaxed max-w-3xl mx-auto relative z-10 text-center space-y-6">
             <p className="text-slate-100 text-lg md:text-xl font-sans font-normal leading-relaxed">
-              VIYARA is a tech-enabled software and marketing agency helping businesses grow through innovative technology and data-driven strategies. We deliver scalable software, impactful digital experiences, and performance-focused marketing solutions that drive growth, improve efficiency, and create lasting business success.
+              Viyara is a custom-built digital commerce platform for businesses that want more than a standard e-commerce setup.
+            </p>
+            <p className="text-slate-300 text-base md:text-lg font-sans font-light leading-relaxed">
+              With our BYOC — Build Your Own Commerce approach, businesses can create a digital commerce ecosystem tailored to the way they actually operate — from their website and web app to products, customer journeys, marketing tools and business workflows.
+            </p>
+            <p className="text-slate-300 text-base md:text-lg font-sans font-light leading-relaxed">
+              Flexible by design. Custom-built for the way your business works.
+            </p>
+            <p className="text-slate-300 text-base md:text-lg font-sans font-light leading-relaxed">
+              You build it your way. You own the ecosystem. You scale on your terms.
+            </p>
+            <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#60a5fa] text-xl md:text-2xl font-sans font-bold leading-relaxed tracking-wide uppercase pt-4">
+              VIYARA — Your Commerce. Your Way.
             </p>
           </div>
         </motion.div>
