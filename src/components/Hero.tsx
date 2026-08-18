@@ -118,7 +118,13 @@ export default function Hero() {
             className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-7 mt-8 uppercase"
           >
             BYOCs - Build Your Own <br />
-            <span className="text-transparent bg-clip-text bg-[linear-gradient(110deg,#2563eb,45%,#60a5fa,55%,#2563eb)] bg-[length:200%_100%] animate-[shimmer_4s_infinite]">
+            <span 
+              className="text-transparent bg-clip-text bg-[linear-gradient(110deg,#2563eb,45%,#60a5fa,55%,#2563eb)] bg-[length:200%_100%] animate-[shimmer_4s_infinite]"
+              style={{
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
               Commerce Space
             </span>
           </motion.h1>

@@ -76,7 +76,13 @@ export default function About() {
             <p className="text-slate-300 text-base md:text-lg font-sans font-light leading-relaxed">
               You build it your way. You own the ecosystem. You scale on your terms.
             </p>
-            <p className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#60a5fa] text-xl md:text-2xl font-sans font-bold leading-relaxed tracking-wide uppercase pt-4">
+            <p 
+              className="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-[#60a5fa] text-xl md:text-2xl font-sans font-bold leading-relaxed tracking-wide uppercase pt-4"
+              style={{
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
               VIYARA — Your Commerce. Your Way.
             </p>
           </div>

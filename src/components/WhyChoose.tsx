@@ -77,7 +77,13 @@ export default function WhyChoose() {
             </span>
             <h3 className="text-4xl md:text-5xl font-serif font-bold text-[#0f172a] mb-6 leading-tight">
               Architecting the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-purple)]">
+              <span 
+                className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-accent-blue)] to-[var(--color-accent-purple)]"
+                style={{
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
                 Future of Digital
               </span>
             </h3>
