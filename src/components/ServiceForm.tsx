@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Send, Paperclip, ChevronDown, ArrowRight } from 'lucide-react';
+import { CheckCircle2, Send, ChevronDown, ArrowRight } from 'lucide-react';
 import { supabase } from '../services/supabaseClient';
 
 export default function ServiceForm() {
@@ -8,10 +8,9 @@ export default function ServiceForm() {
     name: '',
     email: '',
     service: '',
-    message: ''
+    message: '',
+    byoc: ''
   });
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,16 +36,6 @@ export default function ServiceForm() {
         return updated;
       });
     }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setSelectedFile(e.target.files[0]);
-    }
-  };
-
-  const handleBrowseClick = () => {
-    fileInputRef.current?.click();
   };
 
   const validate = () => {
@@ -80,33 +69,8 @@ export default function ServiceForm() {
 
     setIsSubmitting(true);
     try {
-      let fileUrl = '';
-      if (selectedFile) {
-        try {
-          const fileExt = selectedFile.name.split('.').pop();
-          const fileName = `${Math.random()}.${fileExt}`;
-          const filePath = `briefs/${fileName}`;
-
-          // Attempt upload to 'briefs' storage bucket
-          const { error: uploadError } = await supabase.storage
-            .from('briefs')
-            .upload(filePath, selectedFile);
-
-          if (!uploadError) {
-            const { data } = supabase.storage.from('briefs').getPublicUrl(filePath);
-            fileUrl = data.publicUrl;
-          } else {
-            console.warn('Storage upload failed:', uploadError.message);
-            fileUrl = `${selectedFile.name} (Upload Failed: ${uploadError.message})`;
-          }
-        } catch (uploadErr: any) {
-          console.warn('Storage upload exception:', uploadErr.message);
-          fileUrl = `${selectedFile.name} (Upload Failed)`;
-        }
-      }
-
       // Save inquiry to supabase contacts table
-      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.service}] | [Message: ${formData.message.trim()}]` + (fileUrl ? ` | [File: ${fileUrl}]` : (selectedFile ? ` | [File: ${selectedFile.name} (Not Uploaded)]` : ' | [File: None]'));
+      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.service}] | [Message: ${formData.message.trim()}]` + (formData.byoc ? ` | [BYOC Space: ${formData.byoc.trim()}]` : ' | [BYOC Space: None]');
 
       const { error } = await supabase
         .from('contacts')
@@ -262,34 +226,20 @@ export default function ServiceForm() {
                   </div>
 
                   {/* Custom File Upload Brief field */}
+                  {/* BYOC field */}
                   <div className="space-y-2">
-                    <label className="block text-[10px] font-bold tracking-wider text-slate-400 uppercase">
-                      Project Brief / Attachment (PDF, Image)
+                    <label htmlFor="byoc" className="block text-[10px] font-bold tracking-wider text-slate-400 uppercase">
+                      BYOCs - Build Your Own Commerce Space
                     </label>
-                    <div 
-                      onClick={handleBrowseClick}
-                      className="w-full px-4.5 py-2.5 bg-white/3 border border-white/10 hover:border-blue-500/40 rounded-xl flex items-center justify-between cursor-pointer transition-all active:scale-[0.99]"
-                    >
-                      <div className="flex items-center gap-2.5 text-xs text-slate-400 max-w-[70%] overflow-hidden">
-                        <Paperclip size={14} className="text-blue-400 shrink-0" />
-                        <span className="truncate select-none">
-                          {selectedFile ? selectedFile.name : 'Attach brief or mockup file...'}
-                        </span>
-                      </div>
-                      <button 
-                        type="button"
-                        className="bg-slate-800 hover:bg-slate-750 text-white font-bold text-[9px] uppercase tracking-wider px-3.5 py-2 rounded-lg transition-all"
-                      >
-                        Browse
-                      </button>
-                      <input 
-                        type="file"
-                        ref={fileInputRef}
-                        onChange={handleFileChange}
-                        accept=".pdf,image/*"
-                        className="hidden"
-                      />
-                    </div>
+                    <textarea 
+                      name="byoc"
+                      id="byoc"
+                      rows={3}
+                      placeholder="Describe your custom commerce features, workflows, or integrations..."
+                      value={formData.byoc}
+                      onChange={handleInputChange}
+                      className="w-full px-4.5 py-3.5 bg-white/3 border border-white/10 focus:border-blue-500 rounded-xl text-xs outline-none transition-all resize-none placeholder:text-slate-500 text-slate-300"
+                    />
                   </div>
 
                   {/* Submit Button */}
@@ -342,8 +292,7 @@ export default function ServiceForm() {
                 <button
                   type="button"
                   onClick={() => {
-                    setFormData({ name: '', email: '', service: '', message: '' });
-                    setSelectedFile(null);
+                    setFormData({ name: '', email: '', service: '', message: '', byoc: '' });
                     setIsSubmitted(false);
                   }}
                   className="group inline-flex items-center justify-center gap-1.5 px-6 py-3.5 rounded-xl bg-white/5 hover:bg-white/10 text-white font-semibold text-xs border border-white/10 transition-all duration-200 cursor-pointer"

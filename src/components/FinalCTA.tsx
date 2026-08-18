@@ -1,12 +1,11 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, Send, Sparkles, Paperclip } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, Sparkles } from 'lucide-react';
 import Magnetic from './Magnetic';
 import { supabase } from '../services/supabaseClient';
 
 export default function FinalCTA() {
-  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
-  const [file, setFile] = useState<File | null>(null);
+  const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '', byoc: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -16,33 +15,8 @@ export default function FinalCTA() {
 
     setIsSubmitting(true);
     try {
-      let fileUrl = '';
-      if (file) {
-        try {
-          const fileExt = file.name.split('.').pop();
-          const fileName = `${Math.random()}.${fileExt}`;
-          const filePath = `briefs/${fileName}`;
-
-          // Attempt upload to 'briefs' storage bucket
-          const { error: uploadError } = await supabase.storage
-            .from('briefs')
-            .upload(filePath, file);
-
-          if (!uploadError) {
-            const { data } = supabase.storage.from('briefs').getPublicUrl(filePath);
-            fileUrl = data.publicUrl;
-          } else {
-            console.warn('Storage upload failed:', uploadError.message);
-            fileUrl = `${file.name} (Upload Failed: ${uploadError.message})`;
-          }
-        } catch (uploadErr: any) {
-          console.warn('Storage upload exception:', uploadErr.message);
-          fileUrl = `${file.name} (Upload Failed)`;
-        }
-      }
-
       // Save inquiry to supabase contacts table
-      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.subject}] | [Message: ${formData.message.trim()}]` + (fileUrl ? ` | [File: ${fileUrl}]` : (file ? ` | [File: ${file.name} (Not Uploaded)]` : ' | [File: None]'));
+      const formattedPhone = `[Email: ${formData.email.trim()}] | [Service: ${formData.subject}] | [Message: ${formData.message.trim()}]` + (formData.byoc ? ` | [BYOC Space: ${formData.byoc.trim()}]` : ' | [BYOC Space: None]');
 
       const { error } = await supabase
         .from('contacts')
@@ -56,8 +30,7 @@ export default function FinalCTA() {
       setSubmitted(true);
       setTimeout(() => {
         setSubmitted(false);
-        setFormData({ name: '', email: '', subject: '', message: '' });
-        setFile(null);
+        setFormData({ name: '', email: '', subject: '', message: '', byoc: '' });
       }, 4000);
     } catch (err: any) {
       console.error('Database insertion failed:', err.message);
@@ -263,30 +236,18 @@ export default function FinalCTA() {
                     />
                   </div>
 
-                  {/* File Upload Field */}
+                  {/* BYOC field */}
                   <div className="flex flex-col gap-2">
-                    <label className="text-[10px] uppercase font-bold tracking-widest text-[#f1f5f9]/50">Project Brief / Attachment (PDF, Image)</label>
-                    <div className="relative group/upload">
-                      <input 
-                        type="file" 
-                        accept="image/*,application/pdf"
-                        onChange={(e) => {
-                          if (e.target.files && e.target.files[0]) {
-                            setFile(e.target.files[0]);
-                          }
-                        }}
-                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10" 
-                      />
-                      <div className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 flex items-center justify-between text-xs text-white/50 focus-within:border-[#f1f5f9] focus-within:bg-white/10 hover:bg-white/10 transition-all font-light">
-                        <div className="flex items-center gap-3">
-                          <Paperclip size={14} className="text-[#2563eb]" />
-                          <span className="truncate max-w-[200px] sm:max-w-xs">{file ? file.name : "Attach brief or mockup file..."}</span>
-                        </div>
-                        <div className="text-[10px] uppercase tracking-wider font-bold bg-white/10 text-white px-3 py-1.5 rounded-xl border border-white/5 group-hover/upload:bg-white/20 transition-all">
-                          Browse
-                        </div>
-                      </div>
-                    </div>
+                    <label htmlFor="byoc" className="text-[10px] uppercase font-bold tracking-widest text-[#f1f5f9]/50">BYOCs - Build Your Own Commerce Space</label>
+                    <textarea 
+                      name="byoc"
+                      id="byoc"
+                      rows={3}
+                      value={formData.byoc}
+                      onChange={(e) => setFormData({ ...formData, byoc: e.target.value })}
+                      className="w-full bg-white/5 border border-white/10 rounded-2xl px-5 py-4 text-xs text-white focus:outline-none focus:border-[#f1f5f9] focus:bg-white/10 transition-all resize-none placeholder:text-slate-500 font-light leading-relaxed text-slate-300" 
+                      placeholder="Describe your custom commerce features, workflows, or integrations..."
+                    />
                   </div>
 
                   {/* Submit Button with Magnetic Wrapper */}

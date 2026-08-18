@@ -117,9 +117,9 @@ export default function Hero() {
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-7 mt-8 uppercase"
           >
-            Your Commerce. <br />
+            Custom-Built <br />
             <span className="text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#cbd5e1,55%,#ffffff)] bg-[length:200%_100%] animate-[shimmer_4s_infinite]">
-              Your Way.
+              Digital Commerce Platform
             </span>
           </motion.h1>
 
