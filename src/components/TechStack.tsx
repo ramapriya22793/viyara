@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code2, Cpu, Database, Cloud, LayoutTemplate, 
@@ -46,6 +46,14 @@ export default function TechStack() {
   const prevSlide = () => {
     setActiveGroupIndex((prev) => (prev - 1 + techGroups.length) % techGroups.length);
   };
+
+  // Autoplay slider for mobile view (changes every 5 seconds)
+  useEffect(() => {
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [activeGroupIndex]);
 
   return (
     <section id="tech-stack" className="py-20 md:py-28 relative overflow-hidden bg-[#f8fafc] border-t border-[#0f172a]/5">
