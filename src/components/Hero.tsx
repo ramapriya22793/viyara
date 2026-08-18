@@ -117,9 +117,9 @@ export default function Hero() {
             transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
             className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] tracking-tight text-white mb-7 mt-8 uppercase"
           >
-            Custom-Built <br />
+            Your Commerce. <br />
             <span className="text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#cbd5e1,55%,#ffffff)] bg-[length:200%_100%] animate-[shimmer_4s_infinite]">
-              Digital Commerce Platform
+              Your Way.
             </span>
           </motion.h1>
 
@@ -130,7 +130,7 @@ export default function Hero() {
             transition={{ duration: 0.9, delay: 0.15 }}
             className="text-sm md:text-base lg:text-lg text-[var(--color-luxury-beige)]/70 font-light max-w-2xl leading-relaxed mb-10 tracking-wide"
           >
-            With our BYOC — Build Your Own Commerce approach, businesses can create a digital commerce ecosystem tailored to the way they actually operate — from their website and web app to products, customer journeys, marketing tools and business workflows.
+            Viyara is a custom-built digital commerce platform for businesses that want more than a standard e-commerce setup. With our BYOC — Build Your Own Commerce approach, businesses can create a digital commerce ecosystem tailored to the way they actually operate — from their website and web app to products, customer journeys, marketing tools and business workflows.
           </motion.p>
 
           {/* Premium CTA Buttons */}
