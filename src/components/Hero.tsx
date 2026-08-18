@@ -119,7 +119,7 @@ export default function Hero() {
           >
             BYOCs - BUILD YOUR OWN <br />
             <span 
-              className="text-transparent bg-clip-text bg-[linear-gradient(110deg,#2563eb,45%,#60a5fa,55%,#2563eb)] bg-[length:200%_100%] animate-[shimmer_4s_infinite]"
+              className="text-transparent bg-clip-text bg-[linear-gradient(110deg,#ffffff,45%,#cbd5e1,55%,#ffffff)] bg-[length:200%_100%] animate-[shimmer_4s_infinite]"
               style={{
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
