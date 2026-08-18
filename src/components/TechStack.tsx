@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Code2, Cpu, Database, Cloud, LayoutTemplate, 
   Smartphone, Paintbrush, ShieldCheck, Milestone
@@ -36,8 +37,18 @@ const techGroups = [
 ];
 
 export default function TechStack() {
+  const [activeGroupIndex, setActiveGroupIndex] = useState(0);
+
+  const nextSlide = () => {
+    setActiveGroupIndex((prev) => (prev + 1) % techGroups.length);
+  };
+
+  const prevSlide = () => {
+    setActiveGroupIndex((prev) => (prev - 1 + techGroups.length) % techGroups.length);
+  };
+
   return (
-    <section id="tech-stack" className="py-28 relative overflow-hidden bg-[#f8fafc] border-t border-[#0f172a]/5">
+    <section id="tech-stack" className="py-20 md:py-28 relative overflow-hidden bg-[#f8fafc] border-t border-[#0f172a]/5">
       {/* Background ambient decorative circles */}
       <div className="absolute top-1/3 left-1/4 w-[400px] h-[400px] bg-[var(--color-accent-blue)]/3 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-[var(--color-accent-purple)]/4 rounded-full blur-[120px] pointer-events-none" />
@@ -45,7 +56,7 @@ export default function TechStack() {
       <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-16 md:mb-20">
           <motion.span
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -75,8 +86,8 @@ export default function TechStack() {
           </motion.p>
         </div>
 
-        {/* Circular Spherical Tech Grid */}
-        <div className="grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto justify-center items-center">
+        {/* Desktop View: Circular Spherical Tech Grid */}
+        <div className="hidden lg:grid lg:grid-cols-3 gap-12 max-w-6xl mx-auto justify-center items-center">
           {techGroups.map((group, groupIndex) => (
             <motion.div
               key={groupIndex}
@@ -118,12 +129,74 @@ export default function TechStack() {
           ))}
         </div>
 
+        {/* Mobile View: Carousel Slider */}
+        <div className="lg:hidden flex flex-col items-center justify-center relative max-w-sm mx-auto px-2">
+          <div className="w-full relative min-h-[300px] sm:min-h-[320px] flex items-center justify-center overflow-hidden">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeGroupIndex}
+                initial={{ opacity: 0, x: 80, scale: 0.95 }}
+                animate={{ opacity: 1, x: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -80, scale: 0.95 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(_e, { offset, velocity }) => {
+                  const swipe = Math.abs(offset.x) * velocity.x;
+                  if (swipe < -5000 || offset.x < -70) {
+                    nextSlide();
+                  } else if (swipe > 5000 || offset.x > 70) {
+                    prevSlide();
+                  }
+                }}
+                className="w-full aspect-square max-w-[270px] sm:max-w-[290px] rounded-full flex flex-col justify-center items-center text-center p-6 relative overflow-hidden border border-[#162436]/10 shadow-[0_20px_50px_rgba(22,36,54,0.15)] bg-[#162436] cursor-grab active:cursor-grabbing"
+              >
+                {/* Radial glow */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/10 via-transparent to-indigo-500/15 pointer-events-none" />
+                
+                <div className="mb-4 z-10 max-w-[200px] select-none">
+                  <h4 className="font-serif text-base sm:text-lg font-bold text-white mb-1.5">{techGroups[activeGroupIndex].category}</h4>
+                  <p className="text-[#cbd5e1] text-[10px] sm:text-xs font-light leading-relaxed px-2">{techGroups[activeGroupIndex].desc}</p>
+                </div>
+
+                {/* Items */}
+                <div className="flex flex-wrap gap-2 justify-center z-10 max-w-[220px]">
+                  {techGroups[activeGroupIndex].items.map((item, itemIndex) => (
+                    <div
+                      key={itemIndex}
+                      className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border border-white/10 bg-white/5 select-none"
+                    >
+                      <item.icon className="w-3 h-3 text-[#60a5fa]" />
+                      <span className="text-[9px] font-bold tracking-wider uppercase text-white">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Dots Navigation for Mobile */}
+          <div className="flex items-center justify-center gap-2 mt-6">
+            {techGroups.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveGroupIndex(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  idx === activeGroupIndex ? 'w-8 bg-[#2563eb]' : 'w-2 bg-slate-300 hover:bg-slate-400'
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Fine-print certification text */}
         <motion.div 
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mt-16 text-xs tracking-wider text-[#475569] font-medium"
+          className="text-center mt-12 md:mt-16 text-[10px] md:text-xs tracking-wider text-[#475569] font-medium px-4"
         >
           ✓ Fully compiled TypeScript • Server-side optimized • Zero-latency caching • Cloud Native compliant
         </motion.div>
