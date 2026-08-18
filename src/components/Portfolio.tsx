@@ -479,7 +479,7 @@ export default function Portfolio() {
         </motion.h3>
 
         {/* Interactive Swipe Tabs Navigation Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-2 pt-4 max-w-3xl mx-auto">
+        <div className="flex items-center justify-start sm:justify-center gap-2 pt-4 max-w-full overflow-x-auto scrollbar-none px-4 pb-2 w-full sm:flex-wrap">
           {projects.map((proj, idx) => {
             const isActive = idx === currentIndex;
             return (
@@ -489,7 +489,7 @@ export default function Portfolio() {
                   setDirection(idx > currentIndex ? 1 : -1);
                   setCurrentIndex(idx);
                 }}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 border cursor-pointer ${
+                className={`px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 flex items-center gap-2 border cursor-pointer shrink-0 ${
                   isActive
                     ? 'text-white shadow-lg scale-105'
                     : 'bg-slate-100/80 text-slate-600 border-slate-200 hover:bg-slate-200 hover:text-slate-900'
@@ -570,12 +570,12 @@ export default function Portfolio() {
               {/* Content Column */}
               <div className="w-full lg:w-1/2 space-y-2.5 sm:space-y-3 relative z-10">
                 <div className="flex items-center gap-3">
-                  <span className={`text-3xl font-mono font-black opacity-35 ${currentProject.theme.idHoverColor} transition-colors duration-500`}>{currentProject.id}</span>
+                  <span className={`text-2xl sm:text-3xl font-mono font-black opacity-35 ${currentProject.theme.idHoverColor} transition-colors duration-500`}>{currentProject.id}</span>
                   <span className={`w-10 h-[2px] ${currentProject.theme.dividerColor}`} />
-                  <span className={`text-[11px] font-bold uppercase tracking-widest ${currentProject.theme.categoryColor}`}>{currentProject.category}</span>
+                  <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-widest ${currentProject.theme.categoryColor}`}>{currentProject.category}</span>
                 </div>
 
-                <h4 className="text-xl sm:text-2xl lg:text-3xl font-serif font-black leading-tight tracking-tight">
+                <h4 className="text-lg sm:text-2xl lg:text-3xl font-serif font-black leading-tight tracking-tight">
                   {currentProject.title === 'KALIKA SPHERE' ? (
                     <>
                       <span className="text-[#e31e24]">KALIKA</span>{' '}
@@ -597,7 +597,7 @@ export default function Portfolio() {
                   {currentProject.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className={`text-[10px] font-semibold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border backdrop-blur-md hover:scale-105 transition-transform duration-200 shadow-2xs ${currentProject.theme.tagBg}`}
+                      className={`text-[9px] sm:text-[10px] font-semibold px-2 py-0.5 sm:px-3 sm:py-1 rounded-full border backdrop-blur-md hover:scale-105 transition-transform duration-200 shadow-2xs ${currentProject.theme.tagBg} ${idx >= 4 ? 'hidden sm:inline-block' : ''}`}
                     >
                       {tag}
                     </span>
@@ -605,7 +605,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Key Features List with Hover Translate */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-y-1.5 gap-x-6 py-0.5 sm:py-1">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-y-1.5 gap-x-6 py-0.5 sm:py-1 max-sm:hidden">
                   {currentProject.features.map((feature, idx) => (
                     <div key={idx} className="flex items-center gap-2.5 group/feat hover:translate-x-1.5 transition-transform duration-300">
                       <div className={`w-1.5 h-1.5 rounded-full ${currentProject.theme.dotColor} group-hover/feat:scale-125 transition-transform duration-300`} />
@@ -641,20 +641,16 @@ export default function Portfolio() {
                 </div>
               </div>
 
-              {/* Visual Column - Clickable Box & Image */}
-              <a
-                href={currentProject.website !== '#' ? currentProject.website : '#contact'}
-                target={currentProject.website !== '#' ? "_blank" : "_self"}
-                rel="noopener noreferrer"
-                className="w-full lg:w-1/2 flex items-center justify-center relative z-10 group-hover:scale-[1.03] transition-transform duration-500 cursor-pointer block"
-                title={`Visit ${currentProject.title} (${currentProject.website})`}
+              {/* Visual Column - Styled without cursor hijacking on mobile */}
+              <div
+                className="w-full lg:w-1/2 flex items-center justify-center relative z-10 group-hover:scale-[1.03] transition-transform duration-500 mt-5 lg:mt-0"
               >
                 {currentProject.visualType === 'kalikasphere' ? <KalikaMockup /> : 
                  currentProject.visualType === 'prink' ? <PrinkMockup /> : 
                  currentProject.visualType === 'paidhu' ? <PaidhuMockup /> : 
                  currentProject.visualType === 'paidhusaffron' ? <PaidhuSaffronMockup /> :
                  <FloffiMockup />}
-              </a>
+              </div>
 
             </motion.div>
           </AnimatePresence>
