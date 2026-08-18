@@ -161,7 +161,7 @@ const projects = [
 
 const KalikaMockup = () => {
   return (
-    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-red-500/20 flex items-center justify-center p-3 shadow-inner group/mockup">
+    <div className="relative w-full h-[140px] sm:h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF1F2] via-[#F0F9FF] to-[#E0F2FE] border border-red-500/20 flex items-center justify-center p-2 sm:p-3 shadow-inner group/mockup">
       <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#e31e24,#2563eb,#e31e24)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(227,30,36,0.15)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-1 right-1 w-14 h-14 bg-[#e31e24]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -195,7 +195,7 @@ const KalikaMockup = () => {
             </div>
           </div>
 
-          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[60px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/kalika-home.png" 
               alt="Kalika Sphere Homepage" 
@@ -210,7 +210,7 @@ const KalikaMockup = () => {
 
 const PrinkMockup = () => {
   return (
-    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#E0E7FF] to-[#C7D2FE] border border-[#0C1E43]/20 flex items-center justify-center p-3 shadow-inner group/mockup">
+    <div className="relative w-full h-[140px] sm:h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#EEF2FF] via-[#E0E7FF] to-[#C7D2FE] border border-[#0C1E43]/20 flex items-center justify-center p-2 sm:p-3 shadow-inner group/mockup">
       <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#0C1E43,#4F46E5,#0C1E43)] opacity-20 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-40 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(12,30,67,0.15)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-1 right-1 w-14 h-14 bg-[#0C1E43]/15 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -244,7 +244,7 @@ const PrinkMockup = () => {
             </div>
           </div>
 
-          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[60px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/prink-home.png" 
               alt="The Prink Homepage" 
@@ -259,7 +259,7 @@ const PrinkMockup = () => {
 
 const PaidhuMockup = () => {
   return (
-    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#fdf4fb] via-[#f8e7f5] to-[#f3d5ee] border border-[#662654]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+    <div className="relative w-full h-[140px] sm:h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#fdf4fb] via-[#f8e7f5] to-[#f3d5ee] border border-[#662654]/30 flex items-center justify-center p-2 sm:p-3 shadow-inner group/mockup">
       <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#662654,#EDE707,#662654)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(102,38,84,0.2)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-1 right-1 w-14 h-14 bg-[#662654]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -293,7 +293,7 @@ const PaidhuMockup = () => {
             </div>
           </div>
 
-          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[60px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/paidhu-home.png" 
               alt="Paidhu Homepage" 
@@ -308,7 +308,7 @@ const PaidhuMockup = () => {
 
 const FloffiMockup = () => {
   return (
-    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA] border border-[#FF8C00]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+    <div className="relative w-full h-[140px] sm:h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#FFF7ED] via-[#FFEDD5] to-[#FED7AA] border border-[#FF8C00]/30 flex items-center justify-center p-2 sm:p-3 shadow-inner group/mockup">
       <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#FF8C00,#F2EFCF,#FF8C00)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,140,0,0.2)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-1 right-1 w-14 h-14 bg-[#FF8C00]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -342,7 +342,7 @@ const FloffiMockup = () => {
             </div>
           </div>
 
-          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[60px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/floffi-home.png" 
               alt="Floffi Homepage" 
@@ -357,7 +357,7 @@ const FloffiMockup = () => {
 
 const PaidhuSaffronMockup = () => {
   return (
-    <div className="relative w-full h-[180px] sm:h-[220px] rounded-3xl overflow-hidden bg-gradient-to-br from-[#FEF2F2] via-[#FEF3C7] to-[#FDE68A] border border-[#B91C1C]/30 flex items-center justify-center p-3 shadow-inner group/mockup">
+    <div className="relative w-full h-[140px] sm:h-[220px] rounded-2xl sm:rounded-3xl overflow-hidden bg-gradient-to-br from-[#FEF2F2] via-[#FEF3C7] to-[#FDE68A] border border-[#B91C1C]/30 flex items-center justify-center p-2 sm:p-3 shadow-inner group/mockup">
       <div className="absolute w-[140px] h-[140px] rounded-full bg-[conic-gradient(from_0deg,#B91C1C,#F59E0B,#B91C1C)] opacity-25 blur-2xl animate-[spin_8s_linear_infinite] pointer-events-none group-hover/mockup:opacity-50 transition-opacity duration-500" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(185,28,28,0.2)_0%,transparent_70%)] pointer-events-none" />
       <div className="absolute top-1 right-1 w-14 h-14 bg-[#B91C1C]/30 rounded-full blur-3xl pointer-events-none animate-pulse" />
@@ -391,7 +391,7 @@ const PaidhuSaffronMockup = () => {
             </div>
           </div>
 
-          <div className="w-full h-[80px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
+          <div className="w-full h-[60px] sm:h-[95px] overflow-hidden bg-gray-50 relative">
             <img 
               src="/projects/paidhu-saffron.png" 
               alt="Paidhu Saffron Homepage" 
@@ -604,15 +604,7 @@ export default function Portfolio() {
                   ))}
                 </div>
 
-                {/* Key Features List with Hover Translate */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-1 sm:gap-y-1.5 gap-x-6 py-0.5 sm:py-1 max-sm:hidden">
-                  {currentProject.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 group/feat hover:translate-x-1.5 transition-transform duration-300">
-                      <div className={`w-1.5 h-1.5 rounded-full ${currentProject.theme.dotColor} group-hover/feat:scale-125 transition-transform duration-300`} />
-                      <span className={`text-[11px] font-medium ${currentProject.theme.featureTextColor}`}>{feature}</span>
-                    </div>
-                  ))}
-                </div>
+
 
                 {/* Animated Action Button */}
                 <div className="flex flex-wrap gap-3 pt-2 sm:pt-4">
