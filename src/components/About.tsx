@@ -3,6 +3,25 @@ import { ShieldCheck, Code, Sparkles } from 'lucide-react';
 import founderImg from '../assets/WhatsApp Image 2026-06-10 at 12.58.25 PM.jpeg';
 import ctoImg from '../assets/WhatsApp Image 2026-07-23 at 11.53.10 AM.jpeg';
 
+const LinkedinIcon = ({ size = 13, className = '' }: { size?: number; className?: string }) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width={size} 
+    height={size} 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect width="4" height="12" x="2" y="9" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
 export default function About() {
   const teamMembers = [
     {
@@ -15,7 +34,8 @@ export default function About() {
       description: "Defines VIYARA's strategic vision, business growth, and innovation by leading digital transformation, executive partnerships, and customer-focused solutions that drive sustainable business success.",
       gradient: 'from-[#161616] to-[#0d0d0d]',
       borderColor: 'border-white/10 group-hover:border-white/20',
-      tagColor: 'bg-white/5 text-white/90 border-white/10'
+      tagColor: 'bg-white/5 text-white/90 border-white/10',
+      linkedin: 'https://www.linkedin.com/in/ragapriya-karunakaran'
     },
     {
       name: 'Ramapriya Karthikeyan',
@@ -28,7 +48,8 @@ export default function About() {
       description: "Leads VIYARA's technology strategy through software engineering, cloud architecture, AI-driven innovation, and scalable product development, delivering secure, high-performance digital solutions.",
       gradient: 'from-[#161616] to-[#0d0d0d]',
       borderColor: 'border-white/10 group-hover:border-white/20',
-      tagColor: 'bg-white/5 text-white/90 border-white/10'
+      tagColor: 'bg-white/5 text-white/90 border-white/10',
+      linkedin: 'https://www.linkedin.com/in/ramapriya-karthikeyan'
     }
   ];
 
@@ -147,9 +168,22 @@ export default function About() {
                     {member.description}
                   </p>
 
-                  <div className="pt-2 flex items-center gap-2 text-[11px] text-white/75 font-inter relative z-10">
-                    <IconComp size={13} className="text-white/80" />
-                    <span>{member.badge}</span>
+                  <div className="pt-2 flex items-center justify-between text-[11px] relative z-10">
+                    <div className="flex items-center gap-2 text-white/75 font-inter">
+                      <IconComp size={13} className="text-white/80" />
+                      <span>{member.badge}</span>
+                    </div>
+                    {member.linkedin && (
+                      <a 
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-[#60a5fa] hover:text-[#3b82f6] font-semibold text-[10px] uppercase tracking-wider transition-colors duration-300 group/link"
+                      >
+                        <LinkedinIcon size={13} className="transition-transform group-hover/link:scale-110" />
+                        <span>LinkedIn</span>
+                      </a>
+                    )}
                   </div>
                 </motion.div>
               );
