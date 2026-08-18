@@ -21,7 +21,7 @@ export default function Footer() {
               </span>
             </a>
             <p className="text-[#f1f5f9]/65 text-xs font-light leading-relaxed max-w-sm">
-              Engineering digital excellence through modern software architectures, strategic brand curation, and high-performance cloud applications.
+              A custom-built digital commerce platform for businesses that want more than a standard e-commerce setup. Build your own commerce ecosystem, own it, and scale on your terms.
             </p>
           </div>
 
@@ -85,7 +85,7 @@ export default function Footer() {
         {/* Bottom Legal Row */}
         <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[#f1f5f9]/40 text-xs font-light">
-            &copy; {currentYear} VIYARA Marketing Solutions. All rights reserved.
+            &copy; {currentYear} VIYARA. All rights reserved.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-[#f1f5f9]/40 text-xs font-light hover:text-[#f1f5f9] transition-colors">Privacy Policy</a>
