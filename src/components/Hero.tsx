@@ -38,7 +38,7 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-between pt-40 pb-0 overflow-hidden bg-[var(--color-luxury-dark)] select-none text-center"
+      className="relative min-h-screen flex flex-col justify-between pt-40 pb-0 overflow-hidden bg-gradient-to-b from-[#111a28] via-[#0b0f19] to-[#0d0e12] select-none text-center"
     >
       {/* ── Background Photo & Premium Luxury Mask ── */}
       <div className="absolute inset-0 z-0">
@@ -63,7 +63,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-[10%] left-[10%] w-[350px] h-[350px] bg-[var(--color-luxury-plum)]/15 rounded-full filter blur-[80px] pointer-events-none"
+        className="absolute top-[10%] left-[10%] w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] bg-[var(--color-luxury-plum)]/15 rounded-full filter blur-[40px] md:blur-[80px] pointer-events-none"
       />
       <motion.div
         animate={{
@@ -76,7 +76,7 @@ export default function Hero() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute bottom-[20%] right-[15%] w-[450px] h-[450px] bg-[var(--color-luxury-gold)]/8 rounded-full filter blur-[100px] pointer-events-none"
+        className="absolute bottom-[20%] right-[15%] w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] bg-[var(--color-luxury-gold)]/8 rounded-full filter blur-[50px] md:blur-[100px] pointer-events-none"
       />
       <motion.div
         animate={{
@@ -88,17 +88,17 @@ export default function Hero() {
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute top-[40%] right-[30%] w-[300px] h-[300px] bg-[var(--color-luxury-beige)]/5 rounded-full filter blur-[70px] pointer-events-none"
+        className="absolute top-[40%] right-[30%] w-[250px] h-[250px] sm:w-[300px] sm:h-[300px] bg-[var(--color-luxury-beige)]/5 rounded-full filter blur-[35px] md:blur-[70px] pointer-events-none"
       />
       
       {/* Ambient glows (interactive mouse movement) */}
       <motion.div
         style={{ x: glowX, y: glowY }}
-        className="absolute top-[10%] left-[25%] w-[600px] h-[600px] bg-[var(--color-luxury-gold)]/4 rounded-full filter blur-[150px] pointer-events-none"
+        className="hidden md:block absolute top-[10%] left-[25%] w-[600px] h-[600px] bg-[var(--color-luxury-gold)]/4 rounded-full filter blur-[150px] pointer-events-none"
       />
       <motion.div
         style={{ x: glowY, y: glowX }}
-        className="absolute bottom-[15%] right-[25%] w-[550px] h-[550px] bg-[var(--color-luxury-beige)]/3 rounded-full filter blur-[130px] pointer-events-none"
+        className="hidden md:block absolute bottom-[15%] right-[25%] w-[550px] h-[550px] bg-[var(--color-luxury-beige)]/3 rounded-full filter blur-[130px] pointer-events-none"
       />
 
       {/* Main Core Layout (Centralized structure) */}
