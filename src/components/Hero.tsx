@@ -38,7 +38,7 @@ export default function Hero() {
     <section
       id="home"
       ref={containerRef}
-      className="relative min-h-screen flex flex-col justify-between pt-40 pb-0 overflow-hidden bg-[#0b0f19] select-none text-center"
+      className="relative min-h-screen flex flex-col justify-between pt-40 pb-0 overflow-hidden bg-[#0f172a] select-none text-center"
     >
       {/* ── Background Photo & Premium Luxury Mask ── */}
       <div className="hidden md:block absolute inset-0 z-0">
