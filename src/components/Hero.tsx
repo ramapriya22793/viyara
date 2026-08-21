@@ -41,7 +41,15 @@ export default function Hero() {
       className="relative min-h-screen flex flex-col justify-between pt-40 pb-0 overflow-hidden bg-[#0f172a] select-none text-center"
     >
       {/* ── Background Photo & Premium Luxury Mask ── */}
-      <div className="hidden md:block absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0">
+        {/* Background banner image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.25]"
+          style={{ backgroundImage: `url('/hero-bg.png')` }}
+        />
+        {/* Dark overlay mask to keep text legible */}
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0f172a]/70 via-[#0f172a]/90 to-[#0f172a]" />
+
         {/* Subtle noise texture */}
         <div 
           className="absolute inset-0 opacity-[0.015] pointer-events-none"
