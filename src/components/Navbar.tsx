@@ -42,6 +42,11 @@ export default function Navbar() {
           
           {/* Brand Logo */}
           <a href="#home" className="flex items-center gap-2.5 group cursor-pointer" data-cursor-text="Home">
+            <img 
+              src={isScrolled ? '/logo-badge-blue.png' : '/logo-badge-white.png'} 
+              alt="VIYARA Logo" 
+              className="w-7 h-7 object-contain transition-all duration-300"
+            />
             <span className={`font-sans font-bold text-2xl tracking-tight transition-colors duration-300 ${
               isScrolled ? 'text-[#0f172a]' : 'text-white'
             }`}>
