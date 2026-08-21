@@ -5,10 +5,10 @@ import Magnetic from './Magnetic';
 
 const navLinks = [
   { name: 'Home', href: '#home' },
+  { name: 'Why VIYARA', href: '#why-VIYARA' },
   { name: 'Services', href: '#services' },
   { name: 'Projects', href: '#portfolio' },
   { name: 'About', href: '#about' },
-  { name: 'Why VIYARA', href: '#why-VIYARA' },
   { name: 'Methodology', href: '#methodology' },
   { name: 'Careers', href: '#careers' },
   { name: 'Contact', href: '#contact' },

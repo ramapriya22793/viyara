@@ -96,10 +96,10 @@ function App() {
                 <main>
                   {/* Sections in user recommended sequence */}
                   <Hero />
+                  <WhyChoose />
                   <Services />
                   <Portfolio />
                   <About />
-                  <WhyChoose />
                   <Process />
                   <TechStack />
                   <FinalCTA />
