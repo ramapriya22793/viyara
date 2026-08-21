@@ -29,8 +29,12 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       setCurrentHash(window.location.hash);
-      // Scroll to top when switching to careers or service-form
-      if (window.location.hash === '#careers' || window.location.hash === '#service-form') {
+      // Scroll to top when switching to careers, services, or service-form
+      if (
+        window.location.hash === '#careers' || 
+        window.location.hash === '#service-form' || 
+        window.location.hash === '#services'
+      ) {
         window.scrollTo({ top: 0, behavior: 'instant' });
       }
     };
@@ -92,12 +96,15 @@ function App() {
 
               {currentHash === '#careers' ? (
                 <Careers />
+              ) : currentHash === '#services' ? (
+                <div className="pt-16 bg-[#ffffff]">
+                  <Services />
+                </div>
               ) : (
                 <main>
                   {/* Sections in user recommended sequence */}
                   <Hero />
                   <WhyChoose />
-                  <Services />
                   <Portfolio />
                   <About />
                   <Process />
