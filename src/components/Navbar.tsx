@@ -14,6 +14,18 @@ const navLinks = [
   { name: 'Contact', href: '#contact' },
 ];
 
+const ViyaraLogoIcon = ({ isScrolled }: { isScrolled: boolean }) => (
+  <svg 
+    viewBox="0 0 512 512" 
+    className="w-7 h-7 transition-colors duration-300"
+  >
+    <path 
+      d="M 128 256 L 128 192 A 96 96 0 0 1 224 96 L 288 96 A 96 96 0 0 1 384 192 L 384 320 A 96 96 0 0 1 288 416 L 224 416 A 96 96 0 0 1 128 320 L 128 304 L 192 240 L 192 320 A 32 32 0 0 0 224 352 L 288 352 A 32 32 0 0 0 320 320 L 320 192 A 32 32 0 0 0 288 160 L 224 160 A 32 32 0 0 0 192 192 L 128 256 Z" 
+      fill={isScrolled ? '#2563eb' : '#ffffff'} 
+    />
+  </svg>
+);
+
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -42,11 +54,7 @@ export default function Navbar() {
           
           {/* Brand Logo */}
           <a href="#home" className="flex items-center gap-2.5 group cursor-pointer" data-cursor-text="Home">
-            <img 
-              src={isScrolled ? '/logo-badge-blue.png' : '/logo-badge-white.png'} 
-              alt="VIYARA Logo" 
-              className="w-7 h-7 object-contain transition-all duration-300"
-            />
+            <ViyaraLogoIcon isScrolled={isScrolled} />
             <span className={`font-sans font-bold text-2xl tracking-tight transition-colors duration-300 ${
               isScrolled ? 'text-[#0f172a]' : 'text-white'
             }`}>
